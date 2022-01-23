@@ -252,6 +252,7 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 - Pero muy poco castigo al fallar
 - Poca rejugabilidad (si tienes mucho nivel, el principio es muy fácil)
 - Añade mecánicas + elementos de nivel
+  - Doble y triple "salto" buenos para corregir
 
 ** Super Mario World
 
@@ -262,6 +263,7 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 - SMW tiene infinidad de enemigos y mecánicas que van evolucionando
 - Mucho contenido, mucho opcional (rejugabilidad de niveles)
 - Habilidad de movimiento
+  - No hay doble salto, hay que hacerlo bien a la primera
 - En general hay tiempo de sobra
 
 
@@ -272,6 +274,7 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 #+REVEAL: split
 
 - Salto sin movimiento: es importante, en un /side-scroller/, que nos podamos mover durante el salto. Es irreal, pero evita que tengamos que planificar un salto y da más velocidad al juego (y posibilidades)
+  - Hay un doble salto que permite corregir
 - Añade disparo/mecánicas lucha
 - Mecánicas muy constantes
 
@@ -301,9 +304,6 @@ En el atributo ~Possible jumps~ se puede cambiar el número de saltos que se pue
 *** Coger y lanzar objetos
 
 Para cambiar la potencia de lanzamiento, se puede cambiar la variable ~Throw strength~
-
-*************** TODO Que se cojan y lancen bien
-
 
 *** Daño
 
@@ -341,8 +341,6 @@ Es configurable en el atributo ~Barrier~
 :PROPERTIES:
 :ID:       vigia
 :END:
-*************** TODO que el vigía tenga buen movimiento, más sencillo
-
 
 
 El /vigía/ va hacia derecha o izquierda hasta que se tope con un obstáculo (y entonces se da la vuelta) o hasta que caiga de una plataforma a otra inferior (y sigue moviéndose) o al vacío, y muere
@@ -385,7 +383,7 @@ Cuando un enemigo es eliminado, desaparece de la escena
 - Hacer un nivel más largo, o más niveles
 - Comparativa detallada con otros niveles de juegos con mecánicas comparables
 - Que la velocidad del jugador dependa de si lleva o no un objeto
-- Añadir tiempo
+- Añadir tiempo (variables ~Time~ y ~HasTime~ en el /game mode/)
 
 
 
