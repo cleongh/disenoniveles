@@ -39,7 +39,7 @@
 
 * Profesor
 
-- Carlos León <<cleon@ucm.es>>
+- Carlos León <[[mailto:cleon@ucm.es][cleon@ucm.es]]>
 - Profesor FdI
 - Docencia MVJ: Arquitectura UE, prácticas diseño de niveles, tutor de proyectos
 - Videojuegos, Creatividad Computacional y Sistemas Cognitivos
@@ -192,6 +192,8 @@ Veamos algunos aspectos básicos para crear geometría en UE
 
 (Más información en [[https://docs.unrealengine.com/4.27/en-US/Basics/Actors/Brushes/][la documentación de UE]])
 
+#+REVEAL: split
+
 #+CAPTION: En UE se incluye la geometría como cualquier otro objeto de escena
 [[./images/20220122-222024_screenshot.png]]
 
@@ -224,7 +226,7 @@ En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
 ** Operaciones /booleanas/
 
 #+CAPTION: Las operaciones booleanas me permiten "sumar" o "restar"
-./images/boolean_22-01-2022_22-57.gif
+[[./images/boolean_22-01-2022_22-57.gif]]
 
 ** Colores en /whiteboxing/
 
