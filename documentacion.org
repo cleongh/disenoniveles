@@ -1,0 +1,454 @@
+#+TITLE: Montaje y pulido de niveles
+#+AUTHOR: Carlos León
+#+LANGUAGE: es
+#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:t inline:nil
+#+REVEAL_INIT_OPTIONS: slideNumber:true
+#+REVEAL_EXTRA_CSS: css.css
+#+REVEAL_THEME: beige
+
+
+# Asumiendo que ya saben toda la teoría de diseño, les propondré 3 prácticas. Para cada una de las prácticas les haré un repaso de las mecánicas, les pondré algunos ejemplos, y les plantearé problemas concretos a resolver por parejas. Les daré todo implementado, pero si quieren modificar algo de BP, lo podemos hablar.
+
+# Tras cada implementación, haremos “evaluación y pulido cruzados”, de forma que se “cambien” los diseños y los pulan aunque no sean suyos.
+
+#     Nivel 2D lateral: un arcade simple con plataformas (a lo Mario Bros), obstáculos y demás
+#         desarrollo de nivel lineal (principio-fin, yendo “a la derecha”)
+#         pulido de velocidades, saltos y controles
+#         distancias, saltos, llegar o no llegar, dificultad
+#         bloqueo de retroceso por entorno (saltos para no poder ir atrás)
+#     Dual-stick shooter (top-down, como Enter the Gungeon)
+#         desarrollo de un mapa por habitaciones
+#         pulido de velocidades y “feeling”
+#         completado no lineal de nivel
+#         layout estático de enemigos en nivel
+#         configuración de layout dinámico de enemigos
+#         armas y powerups
+#         lógica llave-puerta
+#     1ª persona (Half-Life)
+#         Juego con campo de visión
+#         Escenario cerrado, para jugar con la información
+#         Enemigos “humanos”
+#         Relación y despliegue de armas/tipos de enemigos
+#         Localización de puntos de recuperación/salvado
+
+
+* Profesor
+
+- Carlos León <<cleon@ucm.es>>
+- Profesor FdI
+- Docencia MVJ: Arquitectura UE, prácticas diseño de niveles, tutor de proyectos
+- Videojuegos, Creatividad Computacional y Sistemas Cognitivos
+- [[http://nil.fdi.ucm.es][Grupo de investigación NIL]]
+- Despacho 444 FdI
+
+
+
+* Introducción y objetivos
+
+#+begin_src elisp :exports none
+(setf lista-estudiantes '(2022 19))
+(setf current-year (decoded-time-year (decode-time)))
+(setf estudiantes (plist-get lista-estudiantes current-year))
+(setf tiempo-por-grupo 5)
+(setf miembros 2)
+estudiantes
+#+end_src
+
+#+RESULTS:
+: 19
+
+
+
+** Motivación
+
+Uno de los roles más comunes en el diseño de videojuegos es el de creación de mapas/niveles, este módulo está pensado para reforzar vuestra habilidad como creadores de estos contenido
+
+* Objetivos
+
+
+
+Saber crear de principio a fin niveles con una buena base técnica (objetivo, ideación, despliegue, comprobación...)
+
+#+REVEAL: split
+
+1. Poner en práctica la teoría para /crear/ niveles (en contraposición a mecánicas)
+2. Pulir nivel para jugabilidad y objetivos
+3. Hacer QA *útil* y aplicarlo
+
+*** En concreto
+
+Creación por parejas de 3 niveles para:
+  - Un /scroll lateral/ de saltos
+  - Un /top-down dual-stick/
+  - Un /FPS/
+
+#+REVEAL: split
+
+Las implementaciones disponibles ya os la damos hechas
+
+No hace falta que camibiéis nada, pero no está prohibido
+
+Están basadas en contenido core de UE para facilitar documentación y modificación
+
+*** La pareja ideal
+
+Tenéis libertad para crear parejas, pero los equipos en los que se combine capacidad de programación con capacidad de diseño, generalemente, funcionarán mejor
+
+
+*** Pulido
+
+Los niveles no sólo tienen que ser jugables, también dar buena sensación y buen equilibrado
+
+Para ello haremos un poco de "trampa", permitiendo cambiar los parámetros de las mecánicas
+
+*** QA
+
+Probaremos mucho nuestro juego, y una vez nos satisfaga, /haremos evaluación cruzada/
+
+Los resultados de esta evaluación *deberán servir para retocar*
+
+
+
+*** Aspectos opcionales
+
+- Programar BP en UE4 (aunque podremos)
+- Pulir aspectos visuales o sonoros (que son importantes)
+
+
+** Cómo hacer cada nivel
+
+*** Proceso
+
+1. <<concepto>>Redactar el concepto general del nivel, destacando los objetivos
+2. <<estudio>>Estudio de alternativas similares en juegos (no hace falta hacerlo exhaustivo)
+3. <<elementos>>Listado de elementos principales (geometría, dinámicas...) con los que se va a conseguir trabajar los objetivos, justificados y de dónde se saca la inspiración
+
+#+REVEAL: split
+
+4. [@4] <<geometria>>Geometría "en papel" del nivel, con objetos y enemigos, justificando cada parte
+5. <<implementación>>Implementación en UE
+
+#+REVEAL: split
+
+6. [@6] <<pulido>>Pruebas y pulido, documentado. Entre otras preguntas (todas las que se puedan) hay que saber:
+   a. ¿Cuánto tarda de media un jugador que juega por primera vez? ¿Uno que sepa?
+   b. ¿Dónde suele morir o atascarse? ¿Por qué?
+   c. ¿El jugador cumple objetivos de nivel?
+   d. ¿Qué ocurre cuando modificamos los parámetros de nivel?
+   e. *¿Está ocurriendo lo que queríamos que ocurriera (dinámicas, uso de elementos)?*
+
+
+
+*************** TODO redactar mejores y más objetivos aquí
+*************** END
+
+*** Entrega
+
+Un =.zip= con:
+
+- Un documento (PDF, preferiblemente) con los puntos [[concepto]], [[estudio]], [[elementos]], [[geometria]] y [[pulido]]. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación
+- El proyecto de UE con la implementación (punto [[implementación]])
+
+
+*** Notas para todas las prácticas
+
+**** Mando
+
+Aunque no es estrictamente necesario, se pueden traer mandos (/gamepads/) para probar los juegos, principalmente para el /dual-stick/
+
+**** Edición de parámetros
+
+Todos los parámetros de personajes, nivel y demás que se puedan usar para equilibrar están puestos en la categoría "=Game=" en UE
+
+* /Whiteboxing/
+
+/Whiteboxing/ es el proceso de crear los volúmenes de un nivel, sin tener en cuenta los detalles (las mallas 3D)
+
+(También lo veréis como /greyboxing/, /block out/, /brushes/ o /brush actors/)
+
+#+REVEAL: split
+
+Es el /borrador/ de un nivel, en el que crearemos y experimentaremos con es espacio, distancias, tamaños, etc
+
+#+REVEAL: split
+
+Es una técnica muy buena para saber qué se quiere antes de "vestir" el nivel entero:
+
+- Podremos /iterar/ rápidamente (sin esperar al contenido artístico)
+- Nos permite "aislarnos" de la parte estética
+- Podemos probar las mecánicas y dinámicas
+
+** Introducción al /whiteboxing/ en UE
+
+Veamos algunos aspectos básicos para crear geometría en UE
+
+(Más información en [[https://docs.unrealengine.com/4.27/en-US/Basics/Actors/Brushes/][la documentación de UE]])
+
+#+CAPTION: En UE se incluye la geometría como cualquier otro objeto de escena
+[[./images/20220122-222024_screenshot.png]]
+
+** Manipulación directa
+
+
+#+CAPTION: Los objetos de /whiteboxing/ se pueden rotar, mover y escalar como cualquier ~Actor~
+[[./images/20220122-222215_screenshot.png]]
+
+** Colisión
+
+#+CAPTION: Los objetos tendrán, directamente, una malla de colisión que corresponderá a su geometría
+[[./images/20220122-222440_screenshot.png]]
+
+#+REVEAL: split
+
+En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
+
+** Edición de geometría
+
+#+CAPTION: Podemos pasar al modo de edición de geometría a través del menú superior
+[[./images/20220122-223117_screenshot.png]]
+
+#+REVEAL: split
+
+#+CAPTION: En este modo (/Brush Editing/) los vértices de los objetos son editables y puedo cambiar la forma de las mallas
+[[./images/20220122-223310_screenshot.png]]
+
+
+** Operaciones /booleanas/
+
+#+CAPTION: Las operaciones booleanas me permiten "sumar" o "restar"
+./images/boolean_22-01-2022_22-57.gif
+
+** Colores en /whiteboxing/
+
+Es muy útil añadir colores (materiales) a los bloques para indicar su semática:
+
+- Verde: seguro
+- Rojo: dañino
+- Amarillo: objetivo
+- Azul: objeto
+
+#+REVEAL: split
+
+#+CAPTION: Para colorear geometría /brush/, elegimos el objeto, luego todas sus caras (=Shift-J=) y arrastramos material
+[[./images/20220123-010134_screenshot.png]]
+
+
+* Sesión 1: /Scroll lateral/
+
+** Introducción
+
+En esta parte se va a trabajar en la creación de un nivel para un juego de mecánicas clásicas y sencillas de /arcade/ desplazamiento lateral
+
+Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a cualquier parte dentro de la zona delimitada)
+
+
+** Celeste
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HqL2XkPnZes?start=170" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Exigencia muy alta de nivel
+- Pero muy poco castigo al fallar
+- Poca rejugabilidad (si tienes mucho nivel, el principio es muy fácil)
+- Añade mecánicas + elementos de nivel
+
+** Super Mario World
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ta7ufW0Prws?start=4392" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- SMW tiene infinidad de enemigos y mecánicas que van evolucionando
+- Mucho contenido, mucho opcional (rejugabilidad de niveles)
+- Habilidad de movimiento
+- En general hay tiempo de sobra
+
+
+** Super Ghouls 'n Ghosts
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aK04DwRiIVg?start=324" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Salto sin movimiento: es importante, en un /side-scroller/, que nos podamos mover durante el salto. Es irreal, pero evita que tengamos que planificar un salto y da más velocidad al juego (y posibilidades)
+- Añade disparo/mecánicas lucha
+- Mecánicas muy constantes
+
+
+** Elementos y mecánicas de la práctica
+
+*** Desplazamiento
+
+Desplazamiento lateral sencillo (izquierda/derecha), a una velocidad *parametrizable*
+
+*** Agacharse
+
+El personaje puede agacharse, reduciendo su altura a un multiplicador (*parámetro*)
+
+*** Salto
+
+Salto sencillo, de altura *parametrizable*
+
+Es posible añadir movimiento lateral al salto (es decir, cambiar la dirección en el aire), *parametrizable* respecto a la velocidad básica en el suelo
+
+
+
+*** Varios saltos
+
+En el atributo ~Possible jumps~ se puede cambiar el número de saltos que se pueden dar en el aire (1, 2, 3...)
+
+*** Coger y lanzar objetos
+
+Para cambiar la potencia de lanzamiento, se puede cambiar la variable ~Throw strength~
+
+*************** TODO Que se cojan y lancen bien
+
+
+*** Daño
+
+Tenemos $N$ puntos de vida (configurable como ~Life~, puede ser que $N=1$), y el contacto con los enemigos que no daña nos resta puntos
+
+#+REVEAL: split
+
+El daño en configurable en el atributo ~Damage~
+
+
+Para cambiar la vida inicial, tenemos la variable ~Life~ (en el componente ~Damageable~)
+
+*** Caídas
+
+Si caemos por un agujero, perdemos todos los puntos de vida y la partida se reinicia (blueprint ~Deep~)
+
+*** Gemas
+
+Las gemas son coleccionables para el jugador
+
+Se pueden usar como objetivo (maximizar gemas cogidas), o como condición para eventos
+
+*** Pulsadores
+
+Al ser tocados, un elemento del escenario desaparece (¿una barrera?)
+
+Es configurable en el atributo ~Barrier~
+
+*** Enemigos
+:PROPERTIES:
+:ID: enemigos
+:END:
+
+**** Vigía
+:PROPERTIES:
+:ID:       vigia
+:END:
+*************** TODO que el vigía tenga buen movimiento, más sencillo
+
+
+
+El /vigía/ va hacia derecha o izquierda hasta que se tope con un obstáculo (y entonces se da la vuelta) o hasta que caiga de una plataforma a otra inferior (y sigue moviéndose) o al vacío, y muere
+
+*************** TODO Hacer más bichos
+
+
+
+# ***** Pinchos
+
+# /Pinchos/ tiene el mismo movimiento que el [[id:vigia][vigía]], pero quita vida si se salta sobre él
+
+*** Eliminar enemigos
+
+Podemos eliminar enemigos de varias formas (cada golpe puede terner hacer distinto /daño/):
+
+# - Saltando sobre ellos, si son enemigos que no hacen daño al ser "pisados" (ver [[id:enemigos]])
+- Haciendo que caigan en trampas (ver [[id:enemigos]])
+- Lanzándoles objetos que les dañen
+
+Cuando un enemigo es eliminado, desaparece de la escena
+
+*** Fin del nivel
+
+#+CAPTION: El nivel se acaba cuando llegamos al "portal de salida"
+[[./images/20220122-232410_screenshot.png]]
+
+
+** Objetivos
+
+- Crear un nivel de /scroll lateral/ de 2-3 minutos de duración (sin /speed run/)
+- *Todas las mecánicas* deberán ser usadas en el nivel
+- Justificar y explicar las razones y el impacto *en el jugador* de cada decisión de diseño
+
+** Opcional
+
+- Doble salto (parametrizable con el atributo ~Possible jumps~)
+  - Que el segundo salto sea más corto
+- Es posible modificar, añadir o quitar mecánicas, pero siempre de forma justificada y consultándolo antes. El juego deberá ser fundamentalmente el mismo
+- Hacer un nivel más largo, o más niveles
+- Comparativa detallada con otros niveles de juegos con mecánicas comparables
+- Que la velocidad del jugador dependa de si lleva o no un objeto
+- Añadir tiempo
+
+
+
+# ** Definir objetivo(s) de nivel
+
+# *** ¿Qué quiero hacer/conseguir en este nivel?
+
+# - ¿Qué quiero que aprenda el jugador?
+# - ¿Qué quiero que demuestre?
+# - ¿Por qué se va a divertir?
+
+# *** ¿Cómo voy a conseguirlo (qué elementos-dinámicas)?
+
+
+
+
+
+
+# * Sesión 2: Terminar prototipo 1, pruebas y captura de resultados
+# *************** TODO Para hacer las mediciones de tiempo, saber cuántos son (y poner fórmulas)
+
+# - Media sesión para montar
+# - Descanso (15 min)
+# - Resto de la sesión para hacer grupos cruzados
+
+# * Sesión 3: Aplicación de resultados
+
+# ** Preguntas importantes
+
+# *** Tiempo de juego vs. tiempo estimado
+
+# *** Dificultad de jugador novel
+
+# **** Diferencia de tiempo entre experto y no experto
+
+# *** Entrada: ¿es igual con mando que con teclado?
+
+# *** ¿Qué hacen los jugadores?
+
+# *** Dinámicas: ¿se cumplen?
+
+# ** ¿Se cumplen las dinámicas buscadas?
+
+# ** Exposición global a la clase
+
+# #+begin_src elisp :exports nil
+
+# (setf grupos (+ (/ estudiantes miembros) (% estudiantes miembros)))
+
+# (setf tiempo-presentacion (* tiempo-por-grupo grupos))
+
+# #+end_src
+
+# #+RESULTS:
+# : 50
+
+# * Sesión 4: /Shooter/ en primera persona
+# * Sesión 5
+# * Sesión 6
+# * Sesión 7: /Dual-stick/ cenital
+# * Sesión 8
+# * Sesión 9: Conclusiones generales
+
+# # Local variables:
+# # after-save-hook: org-re-reveal-export-to-html
+# # end:

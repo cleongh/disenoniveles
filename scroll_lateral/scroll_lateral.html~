@@ -1,0 +1,442 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-12-14 mar 13:44 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Montaje y pulido de niveles: desplazamiento lateral</title>
+<meta name="author" content="Carlos León" />
+<meta name="generator" content="Org Mode" />
+<style>
+  #content { max-width: 60em; margin: auto; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #e6e6e6;
+    border-radius: 3px;
+    background-color: #f2f2f2;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: auto;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    top: -8px;
+    right: 12px;
+    padding: 3px;
+    color: #555;
+    background-color: #f2f2f299;
+  }
+  pre.src:hover:before { display: inline; margin-top: 14px;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-authinfo::before { content: 'Authinfo'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+</style>
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        displayAlign: "center",
+        displayIndent: "0em",
+
+        "HTML-CSS": { scale: 100,
+                        linebreaks: { automatic: "false" },
+                        webFont: "TeX"
+                       },
+        SVG: {scale: 100,
+              linebreaks: { automatic: "false" },
+              font: "TeX"},
+        NativeMML: {scale: 100},
+        TeX: { equationNumbers: {autoNumber: "AMS"},
+               MultLineWidth: "85%",
+               TagSide: "right",
+               TagIndent: ".8em"
+             }
+});
+</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-AMS_HTML"></script>
+</head>
+<body>
+<div id="content" class="content">
+<h1 class="title">Montaje y pulido de niveles: desplazamiento lateral</h1>
+<div id="table-of-contents" role="doc-toc">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents" role="doc-toc">
+<ul>
+<li><a href="#orge43cc9f">1. <span class="todo TODO">TODO</span> Introducción</a></li>
+<li><a href="#orgc053490">2. Elementos y mecánicas</a>
+<ul>
+<li><a href="#org47d2962">2.1. Desplazamiento</a></li>
+<li><a href="#org6d04a0f">2.2. Agacharse</a></li>
+<li><a href="#orgd679710">2.3. Salto</a></li>
+<li><a href="#orgf105eba">2.4. Daño</a></li>
+<li><a href="#orgd4dcd60">2.5. Caídas</a></li>
+<li><a href="#orgf9d0ace">2.6. Enemigos</a>
+<ul>
+<li><a href="#orgf0e0a48">2.6.1. <span class="todo TODO">TODO</span> Tipos de enemigos</a></li>
+</ul>
+</li>
+<li><a href="#org2eae8e5">2.7. Eliminar enemigos</a></li>
+<li><a href="#org9ce46cd">2.8. Coger y lanzar objetos</a></li>
+<li><a href="#orga6dab6b">2.9. Principio y fin del nivel</a></li>
+</ul>
+</li>
+<li><a href="#org96c0ec1">3. Objetivos</a></li>
+<li><a href="#orgd4802bb">4. Opcional</a></li>
+<li><a href="#orgc1a3e8c">5. Proceso</a></li>
+<li><a href="#org0a70788">6. Entrega</a></li>
+</ul>
+</div>
+</div>
+<div class="inlinetask">
+<b><span class="todo TODO">TODO</span> hacerlo como Mario 3</b><br />
+nil</div>
+
+
+<div id="outline-container-orge43cc9f" class="outline-2">
+<h2 id="orge43cc9f"><span class="section-number-2">1.</span> <span class="todo TODO">TODO</span> Introducción</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En esta parte se va a trabajar en la creación de un nivel para un juego de mecánicas clásicas y sencillas de <i>arcade</i> desplazamiento lateral.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc053490" class="outline-2">
+<h2 id="orgc053490"><span class="section-number-2">2.</span> Elementos y mecánicas</h2>
+<div class="outline-text-2" id="text-2">
+</div>
+<div id="outline-container-org47d2962" class="outline-3">
+<h3 id="org47d2962"><span class="section-number-3">2.1.</span> Desplazamiento</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+Desplazamiento lateral sencillo (izquierda/derecha), a una velocidad <b>parametrizable</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org6d04a0f" class="outline-3">
+<h3 id="org6d04a0f"><span class="section-number-3">2.2.</span> Agacharse</h3>
+<div class="outline-text-3" id="text-2-2">
+<p>
+El personaje puede agacharse, reduciendo su altura a un multiplicador (<b>parámetro</b>).
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd679710" class="outline-3">
+<h3 id="orgd679710"><span class="section-number-3">2.3.</span> Salto</h3>
+<div class="outline-text-3" id="text-2-3">
+<p>
+Salto sencillo, de altura <b>parametrizable</b>. Es posible añadir movimiento lateral al salto (es decir, cambiar la dirección en el aire), <b>parametrizable</b> respecto a la velocidad básica en el suelo. 
+</p>
+
+<div class="inlinetask">
+<b><span class="todo TODO">TODO</span> explicar lo del salto movible, por qué</b><br />
+nil</div>
+
+
+<div class="inlinetask">
+<b><span class="done DONE">DONE</span> ver si es configurable</b><br />
+nil</div>
+</div>
+</div>
+
+<div id="outline-container-orgf105eba" class="outline-3">
+<h3 id="orgf105eba"><span class="section-number-3">2.4.</span> Daño</h3>
+<div class="outline-text-3" id="text-2-4">
+<p>
+Tenemos \(N\) puntos de vida (configurable como <b>parámetro</b>, puede ser que \(N=1\)), y el contacto con los enemigos que no daña nos resta puntos. Todos los enemigos hacen el mismo daño.
+</p>
+
+<div class="inlinetask">
+<b><span class="done DONE">DONE</span> habría que ver si se puede hacer \(N=1\).</b><br />
+nil</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd4dcd60" class="outline-3">
+<h3 id="orgd4dcd60"><span class="section-number-3">2.5.</span> Caídas</h3>
+<div class="outline-text-3" id="text-2-5">
+<p>
+Si caemos por un agujero, perdemos todos los puntos de vida y la partida se reinicia.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf9d0ace" class="outline-3">
+<h3 id="orgf9d0ace"><span class="section-number-3">2.6.</span> Enemigos</h3>
+<div class="outline-text-3" id="text-2-6">
+</div>
+
+<div id="outline-container-orgf0e0a48" class="outline-4">
+<h4 id="orgf0e0a48"><span class="section-number-4">2.6.1.</span> <span class="todo TODO">TODO</span> Tipos de enemigos</h4>
+<div class="outline-text-4" id="text-2-6-1">
+<p>
+El <i>vigía</i> va hacia derecha o izquierda hasta que se tope con un obstáculo (y entonces se da la vuelta) o hasta que caiga de una plataforma a otra inferior (y sigue moviéndose) o al vacío, y muere.
+</p>
+
+<p>
+<i>Pinchos</i> tiene el mismo movimiento que el <i>vigía</i>, pero quita vida si se salta sobre él.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org2eae8e5" class="outline-3">
+<h3 id="org2eae8e5"><span class="section-number-3">2.7.</span> Eliminar enemigos</h3>
+<div class="outline-text-3" id="text-2-7">
+<p>
+Podemos eliminar enemigos de varias formas (siempre de un solo golpe):
+</p>
+
+<ul class="org-ul">
+<li>Saltando sobre ellos, si son enemigos que no hacen daño (ver <a href="#orgf9d0ace">2.6</a>).</li>
+<li>Lanzándoles objetos (ver <a href="#orgf9d0ace">2.6</a>).</li>
+</ul>
+
+<p>
+Cuando un enemigo es eliminado, desaparece de la escena.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9ce46cd" class="outline-3">
+<h3 id="org9ce46cd"><span class="section-number-3">2.8.</span> Coger y lanzar objetos</h3>
+</div>
+
+<div id="outline-container-orga6dab6b" class="outline-3">
+<h3 id="orga6dab6b"><span class="section-number-3">2.9.</span> Principio y fin del nivel</h3>
+</div>
+</div>
+
+<div id="outline-container-org96c0ec1" class="outline-2">
+<h2 id="org96c0ec1"><span class="section-number-2">3.</span> Objetivos</h2>
+<div class="outline-text-2" id="text-3">
+<ul class="org-ul">
+<li>Crear un nivel de <i>scroll lateral</i> de 2-3 minutos de duración (sin <i>speed run</i>).</li>
+<li><b>Todas las mecánicas</b> deberán ser usadas en el nivel</li>
+<li>Justificar y explicar las razones y el impacto <b>en el jugador</b> de cada decisión de diseño</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd4802bb" class="outline-2">
+<h2 id="orgd4802bb"><span class="section-number-2">4.</span> Opcional</h2>
+<div class="outline-text-2" id="text-4">
+<ul class="org-ul">
+<li>Es posible modificar, añadir o quitar mecánicas, pero siempre de forma justificada y consultándolo antes. El juego deberá ser fundamentalmente el mismo.</li>
+<li>Hacer un nivel más largo, o más niveles.</li>
+<li>Comparativa detallada con otros niveles de juegos con mecánicas comparables.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgc1a3e8c" class="outline-2">
+<h2 id="orgc1a3e8c"><span class="section-number-2">5.</span> Proceso</h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li><a id="org790fd02"></a>Redactar el concepto general del nivel, destacando los objetivos.</li>
+<li><a id="org7b11b4d"></a>Estudio de alternativas similares en juegos (no hace falta hacerlo exhaustivo).</li>
+<li><a id="org2686e5a"></a>Listado de elementos principales (geometría, dinámicas&#x2026;) con los que se va a conseguir trabajar los objetivos, justificados y de dónde se saca la inspiración.</li>
+<li><a id="org65a7cba"></a>Geometría "en papel" del nivel, con objetos y enemigos, justificando cada parte.</li>
+<li><a id="org86fc417"></a>Implementación en UE.</li>
+<li><a id="org945ab51"></a>Pruebas y pulido, documentado.
+<ol class="org-ol">
+<li>¿Cuánto tarda de media un jugador que juega por primera vez?</li>
+<li>¿Dónde suele morir o atascarse?</li>
+<li>¿Está ocurriendo lo que queríamos que ocurriera (dinámicas, uso de elementos)?</li>
+<li>¿El jugador cumple objetivos de nivel?</li>
+<li>¿Qué ocurre cuando modificamos los parámetros de nivel?</li>
+</ol></li>
+</ol>
+
+<div class="inlinetask">
+<b><span class="todo TODO">TODO</span> redactar mejores y más objetivos aquí</b><br />
+nil</div>
+</div>
+</div>
+
+
+
+<div id="outline-container-org0a70788" class="outline-2">
+<h2 id="org0a70788"><span class="section-number-2">6.</span> Entrega</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+Un <code>.zip</code> con:
+</p>
+
+<ul class="org-ul">
+<li>Un documento (PDF, preferiblemente) con los puntos <a href="#org790fd02">1</a>, <a href="#org7b11b4d">2</a>, <a href="#org2686e5a">3</a>, <a href="#org65a7cba">4</a> y <a href="#org945ab51">6</a>. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación.</li>
+<li>El proyecto de UE con la implementación (punto <a href="#org86fc417">5</a>).</li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: Carlos León</p>
+<p class="date">Created: 2021-12-14 mar 13:44</p>
+<p class="validation"><a href="https://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>
