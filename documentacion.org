@@ -1,7 +1,7 @@
 #+TITLE: Montaje y pulido de niveles
 #+AUTHOR: Carlos León
 #+LANGUAGE: es
-#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:t inline:nil
+#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:nil reveal_single_file:t inline:nil
 #+REVEAL_INIT_OPTIONS: slideNumber:true
 #+REVEAL_EXTRA_CSS: css.css
 #+REVEAL_THEME: beige
@@ -31,6 +31,11 @@
 #         Relación y despliegue de armas/tipos de enemigos
 #         Localización de puntos de recuperación/salvado
 
+
+
+* Sesión 1
+
+# 1 hora contando, 2 horas haciendo
 
 * Profesor
 
@@ -125,7 +130,7 @@ Los resultados de esta evaluación *deberán servir para retocar*
 
 #+REVEAL: split
 
-4. [@4] <<geometria>>Geometría "en papel" del nivel, con objetos y enemigos, justificando cada parte
+4. [@4] <<geometria>>Geometría/mapa/esquema "en papel" del nivel, con objetos y enemigos, justificando cada parte
 5. <<implementación>>Implementación en UE
 
 #+REVEAL: split
@@ -137,16 +142,19 @@ Los resultados de esta evaluación *deberán servir para retocar*
    d. ¿Qué ocurre cuando modificamos los parámetros de nivel?
    e. *¿Está ocurriendo lo que queríamos que ocurriera (dinámicas, uso de elementos)?*
 
+#+REVEAL: split
 
-
-*************** TODO redactar mejores y más objetivos aquí
-*************** END
+7. [@7] <<aplicacion>>Aplicación de los resultados de las pruebas en el prototipo, explicando qué se ha hecho y por qué
+   a. ¿Cuántos usuarios?
+   b. ¿Qué hemos descubierto?
+   c. ¿Cómo hemos pasado los hechos a datos?
+   d. ¿Cómo se han pasado los datos a modificaciones?
 
 *** Entrega
 
 Un =.zip= con:
 
-- Un documento (PDF, preferiblemente) con los puntos [[concepto]], [[estudio]], [[elementos]], [[geometria]] y [[pulido]]. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación
+- Un documento (PDF, preferiblemente) con los puntos [[concepto]], [[estudio]], [[elementos]], [[geometria]], [[pulido]] y [[aplicacion]]. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación
 - El proyecto de UE con la implementación (punto [[implementación]])
 
 
@@ -233,7 +241,7 @@ Es muy útil añadir colores (materiales) a los bloques para indicar su semátic
 [[./images/20220123-010134_screenshot.png]]
 
 
-* Sesión 1: /Scroll lateral/
+* /Scroll lateral/
 
 ** Introducción
 
@@ -380,6 +388,9 @@ Cuando un enemigo es eliminado, desaparece de la escena
 - Doble salto (parametrizable con el atributo ~Possible jumps~)
   - Que el segundo salto sea más corto
 - Es posible modificar, añadir o quitar mecánicas, pero siempre de forma justificada y consultándolo antes. El juego deberá ser fundamentalmente el mismo
+
+#+REVEAL: split
+
 - Hacer un nivel más largo, o más niveles
 - Comparativa detallada con otros niveles de juegos con mecánicas comparables
 - Que la velocidad del jugador dependa de si lleva o no un objeto
