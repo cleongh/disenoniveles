@@ -422,7 +422,7 @@ Cuando un enemigo es eliminado, desaparece de la escena
 # - Descanso (15 min)
 # - Resto de la sesión para hacer grupos cruzados
 
-# * Sesión 3: Aplicación de resultados
+# * Sesión 3: Aplicación de resultados y presentación
 
 # ** Preguntas importantes
 
