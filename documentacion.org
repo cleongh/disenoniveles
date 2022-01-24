@@ -50,20 +50,6 @@
 
 * Introducción y objetivos
 
-#+begin_src elisp :exports none
-(setf lista-estudiantes '(2022 19))
-(setf current-year (decoded-time-year (decode-time)))
-(setf estudiantes (plist-get lista-estudiantes current-year))
-(setf tiempo-por-grupo 5)
-(setf miembros 2)
-estudiantes
-#+end_src
-
-#+RESULTS:
-: 19
-
-
-
 ** Motivación
 
 Uno de los roles más comunes en el diseño de videojuegos es el de creación de mapas/niveles, este módulo está pensado para reforzar vuestra habilidad como creadores de estos contenido
@@ -112,8 +98,6 @@ Probaremos mucho nuestro juego, y una vez nos satisfaga, /haremos evaluación cr
 
 Los resultados de esta evaluación *deberán servir para retocar*
 
-
-
 *** Aspectos opcionales
 
 - Programar BP en UE4 (aunque podremos)
@@ -149,6 +133,13 @@ Los resultados de esta evaluación *deberán servir para retocar*
    b. ¿Qué hemos descubierto?
    c. ¿Cómo hemos pasado los hechos a datos?
    d. ¿Cómo se han pasado los datos a modificaciones?
+
+
+*** Romper los juegos
+
+Evidentemente, cuando hagamos las pruebas con los equipos de nuestros compañeros, nuestra labor será /que todo falle y vaya mal/
+
+Es la única manera de mejorar el gameplay
 
 *** Entrega
 
@@ -355,14 +346,6 @@ Es configurable en el atributo ~Barrier~
 
 El /vigía/ va hacia derecha o izquierda hasta que se tope con un obstáculo (y entonces se da la vuelta) o hasta que caiga de una plataforma a otra inferior (y sigue moviéndose) o al vacío, y muere
 
-*************** TODO Hacer más bichos
-
-
-
-# ***** Pinchos
-
-# /Pinchos/ tiene el mismo movimiento que el [[id:vigia][vigía]], pero quita vida si se salta sobre él
-
 *** Eliminar enemigos
 
 Podemos eliminar enemigos de varias formas (cada golpe puede terner hacer distinto /daño/):
@@ -382,8 +365,26 @@ Cuando un enemigo es eliminado, desaparece de la escena
 ** Objetivos
 
 - Crear un nivel de /scroll lateral/ de 2-3 minutos de duración (sin /speed run/)
+- Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
 - *Todas las mecánicas* deberán ser usadas en el nivel
 - Justificar y explicar las razones y el impacto *en el jugador* de cada decisión de diseño
+
+** Cosas que poner en práctica
+
+- Gestión de tiempo de nivel
+- Bloqueo de avance con geometría/bloqueo
+- Desafío y distancias salto/alcance, midiendo dificultad
+- Ritmo desafío/descanso
+- Muestra de desafío y solución (enseñar bloque y enemigo antes de resolver)
+
+** Concepto de nivel
+
+Ayuda mucho dar un concepto único de nivel:
+
+- Objetivo de nivel: ¿para qué es este nivel?
+- Idea base: ¿qué idea queremos desarrollar sobre él?
+- Desafío base: ¿qué es difícil en el nivel
+- Evolución: ¿cómo es el desenlace del nivel?
 
 ** Opcional
 
@@ -400,65 +401,97 @@ Cuando un enemigo es eliminado, desaparece de la escena
 
 
 
-# ** Definir objetivo(s) de nivel
+* Sesión 2: Terminar prototipo 1, pruebas y captura de resultados
 
-# *** ¿Qué quiero hacer/conseguir en este nivel?
-
-# - ¿Qué quiero que aprenda el jugador?
-# - ¿Qué quiero que demuestre?
-# - ¿Por qué se va a divertir?
-
-# *** ¿Cómo voy a conseguirlo (qué elementos-dinámicas)?
+** Compartir pantalla para toda la clase
 
 
+** Revisión inicial
+
+Cada grupo:
+- ¿Hemos definido objetivos/ideas de nivel?
+- ¿Nos satisface el concepto?
+- ¿Se cumplen?
+
+** Preparación de pruebas (30 min)
+ 
+ 1. Preparar prototipo que pueda ser probado por otros equipos
+ 2. Preparar cosas concretas que experimentar:
+   - *Lista* de preguntas, averiguaciones, observaciones
+   - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
+ 
+** Pruebas cruzadas (1h)
+
+ - Hacer lista de grupos (poner un nombre al grupo/nivel)
+ - De cada grupo:
+   - Un miembro irá a probar juegos
+   - Otro se quedará a recibir /testers/ (luego se cambia)
+
+ #+REVEAL: split
+
+ - Tengamos cuidado con distancia
+ - Si alguien no se siente cómodo con moverse, no está obligado
+
+** Conclusiones y plan
+
+- Redactar lo que hemos averiguado
+- Redactar lo que vamos a hacer (un plan concreto), y cómo esperamos que funcione
+
+** Seguir con el proyecto
 
 
+* Sesión 3: Aplicación de resultados, retoques, informe y presentación
 
 
-# * Sesión 2: Terminar prototipo 1, pruebas y captura de resultados
-# *************** TODO Para hacer las mediciones de tiempo, saber cuántos son (y poner fórmulas)
+** Qué incluir en el informe final
 
-# - Media sesión para montar
-# - Descanso (15 min)
-# - Resto de la sesión para hacer grupos cruzados
+- Tiempos (mínimo, máximo, medio) que se estimaban
+- Tiempos reales (apuntar lo que tarda cada jugador, y cuántas veces ha jugado, al menos)
+- Dificultad esperada vs. dificultad percibida
+- Entrada: ¿es óptima?
+- Todo lo interesante: ¿hacen los jugadores lo que yo quería?
+- ¿Las dinámicas que yo quería están en el juego?
 
-# * Sesión 3: Aplicación de resultados y presentación
+#+REVEAL: split
 
-# ** Preguntas importantes
+Y, en general, todo lo relevante
 
-# *** Tiempo de juego vs. tiempo estimado
+** Evaluación de niveles
 
-# *** Dificultad de jugador novel
+Cada grupo hará un pequeño informe (rápido y conciso) de cada uno de los otros niveles:
 
-# **** Diferencia de tiempo entre experto y no experto
+- Cosas reseñables
+- Limitaciones encontradas
+- Bugs de nivel
 
-# *** Entrada: ¿es igual con mando que con teclado?
+** Votación
 
-# *** ¿Qué hacen los jugadores?
+Además, cada grupo elegirá un nivel favorito (¡es válido votarse a uno mismo!)
 
-# *** Dinámicas: ¿se cumplen?
+** Finalizando (2,5h)
 
-# ** ¿Se cumplen las dinámicas buscadas?
+- Preparar el informe final
+- Retocar el juego para pulirlo y refinarlo
+- Hacer pruebas *finales*
+  - Rellenar informe para vuestro juego
+  - Elegir el nivel que más os gusta (y por qué)
 
-# ** Exposición global a la clase
+** Exposición global a la clase (25m)
 
-# #+begin_src elisp :exports nil
-
-# (setf grupos (+ (/ estudiantes miembros) (% estudiantes miembros)))
-
-# (setf tiempo-presentacion (* tiempo-por-grupo grupos))
-
-# #+end_src
-
-# #+RESULTS:
-# : 50
+** Votaciones +y entrega de premios+ (5m)
 
 # * Sesión 4: /Shooter/ en primera persona
-# * Sesión 5
-# * Sesión 6
+# * Sesión 5:
+# * Sesión 6:
 # * Sesión 7: /Dual-stick/ cenital
-# * Sesión 8
+# * Sesión 8:
 # * Sesión 9: Conclusiones generales
+
+# ** Mejoras
+
+# - ¿Qué mecánicas habéis echado de menos?
+# - ¿Qué dificultades habéis encontrado?
+# - ¿Qué se puede mejorar?
 
 # # Local variables:
 # # after-save-hook: org-re-reveal-export-to-html
