@@ -449,28 +449,17 @@ Cada grupo:
  - Tengamos cuidado con distancia
  - Si alguien no se siente cómodo con moverse, no está obligado
 
-** Conclusiones y plan
+** Resultado de pruebas prototipo
 
 - Redactar lo que hemos averiguado
 - Redactar lo que vamos a hacer (un plan concreto), y cómo esperamos que funcione
 
-** Seguir con el proyecto
+** Aplicación de resultados en el prototipo
 
+- Aplicar el resultado de las pruebas al prototipo
+- Volver a efectuar pruebas, esta vez conclusivas: *¿el juego "funciona"?*
 
-** Qué incluir en el informe final
-
-- Tiempos (mínimo, máximo, medio) que se estimaban
-- Tiempos reales (apuntar lo que tarda cada jugador, y cuántas veces ha jugado, al menos)
-- Dificultad esperada vs. dificultad percibida
-- Entrada: ¿es óptima?
-- Todo lo interesante: ¿hacen los jugadores lo que yo quería?
-- ¿Las dinámicas que yo quería están en el juego?
-
-#+REVEAL: split
-
-Y, en general, todo lo relevante
-
-** Evaluación de niveles
+** Evaluación final de niveles
 
 Cada grupo hará un pequeño informe (rápido y conciso) de cada uno de los otros niveles:
 
@@ -478,34 +467,89 @@ Cada grupo hará un pequeño informe (rápido y conciso) de cada uno de los otro
 - Limitaciones encontradas
 - Bugs de nivel
 
+** Qué incluir en el informe final
+
+- Resumen de diseño
+- Mecánicas cambiadas
+- Mapas en texto
+- Plan de pruebas
+- Ejecución de pruebas y resultados
+- Datos de pruebas
+- Resumen de experiencia con otros juegos
+
+#+REVEAL: split
+
+Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
+
+** Exposición global a la clase
+
 ** Votación
 
-Además, cada grupo elegirá un nivel favorito (¡es válido votarse a uno mismo!)
+¡Elegir una práctica favorita!
 
-** Finalizando (2,5h)
+Es válido votarse a uno mismo
 
-- Preparar el informe final
-- Retocar el juego para pulirlo y refinarlo
-- Hacer pruebas *finales*
-  - Rellenar informe para vuestro juego
-  - Elegir el nivel que más os gusta (y por qué)
 
-** Exposición global a la clase (25m)
+* Sesión 4: /Dual-stick/ cenital
 
-** Votaciones +y entrega de premios+ (5m)
+** Objetivo
 
-# * Sesión 4: /Shooter/ en primera persona
-# * Sesión 5:
-# * Sesión 6:
-# * Sesión 7: /Dual-stick/ cenital
-# * Sesión 8:
-# * Sesión 9: Conclusiones generales
+** Juego
 
-# ** Mejoras
+*** Descripción
 
-# - ¿Qué mecánicas habéis echado de menos?
-# - ¿Qué dificultades habéis encontrado?
-# - ¿Qué se puede mejorar?
+*** Movimiento
+
+*** Disparo
+
+*** Armas
+
+*** Enemigos
+
+*** Powerups
+
+*** Llave-puerta
+
+*** Recursos
+
+**** Vida
+
+**** Balas
+
+*** Habitaciones
+
+** Proceso (repetición)
+
+1. Objetivos de nivel/gameplay
+2. Perfilado de mecánicas
+3. Planteamiento de mapa/habitaciones/nivel
+4. Diseño de pruebas (experiencia/nivel/preguntas)
+5. Montaje de escenario
+6. Pruebas piloto
+7. Aplicación de pruebas a versión final
+8. Conclusiones (y votaciones)
+
+* Sesión 5: Multijugador local
+
+** Cambios para que funcione el multijugador
+
+* Sesión 6: Finalización /dual-stick/
+
+
+* Sesión 7: /Shooter/ en primera persona
+
+
+** Objetivo
+
+** Juego
+ # pon mecánicas aquí
+
+** Proceso
+# https://stackoverflow.com/questions/47058372/in-org-mode-how-to-call-code-block-to-evaluate-from-other-org-file
+
+
+* Sesión 8: Narrativa
+* Sesión 9: Finalización /FPS/
 
 # # Local variables:
 # # after-save-hook: org-re-reveal-export-to-html
