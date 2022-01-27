@@ -383,7 +383,7 @@ Ayuda mucho dar un concepto único de nivel:
 
 - Objetivo de nivel: ¿para qué es este nivel?
 - Idea base: ¿qué idea queremos desarrollar sobre él?
-- Desafío base: ¿qué es difícil en el nivel
+- Desafío base: ¿qué es difícil en el nivel?
 - Evolución: ¿cómo es el desenlace del nivel?
 
 ** Opcional
@@ -399,11 +399,13 @@ Ayuda mucho dar un concepto único de nivel:
 - Que la velocidad del jugador dependa de si lleva o no un objeto
 - Añadir tiempo (variables ~Time~ y ~HasTime~ en el /game mode/)
 
-
+# 2022: 1 hora y media sin enseñarles UE, sólo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están sólo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
 
 * Sesión 2: Terminar prototipo 1, pruebas y captura de resultados
 
 ** Compartir pantalla para toda la clase
+
+# Crear sesión meet y que se conecten todos (2022 acabo a las 18:10)
 
 
 ** Revisión inicial
@@ -413,14 +415,29 @@ Cada grupo:
 - ¿Nos satisface el concepto?
 - ¿Se cumplen?
 
-** Preparación de pruebas (30 min)
+# 2022 Hacen juegos, todos o casi todos cambian las mecánicas (debería dar yo más mecánicas, aunque que las hagan ellos no está mal). No cambian mecánicas gordas, más de plataforma y cosas así, en realidad de nivel, no hay problema. En general guay, todos lo pensaron bien ayer.
+
+# 2022 Termino a las 18:40
+
+** Preparación de pruebas
+
+# 2022 Les digo que apunten rápido lo que quieren saber y apuntar. Les dejo tiempo para hacerlo (y que si van terminando empiecen a programar), y que en un rato hacemos check.
  
  1. Preparar prototipo que pueda ser probado por otros equipos
  2. Preparar cosas concretas que experimentar:
    - *Lista* de preguntas, averiguaciones, observaciones
    - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
- 
-** Pruebas cruzadas (1h)
+
+# 2022. A las 19:00 les pregunto que me cuenten, a las 19:20 (8 grupos) termino y ya siguen. No tienen aún ninguno un nivel jugable (muchos están haciendo BP). Descanso a 19:28 más o menos. Voy a intentar que hoy no se haga QA, y que se hagan 2 QAs (y/o mejoras) el lunes. Jugaré con la exigencia. Vuelven a 19:45, muy serios.
+
+# 2022 19:52, creo que ya programamos hasta el final
+
+# 2022 20:24 ahí siguen, haciendo BPs. No han hecho nivel por ninguna parte, que yo vea. Bien
+# 2022 20:37 aquí seguimos, nadie ha hecho nivel. Pienso que tengo que pedir cosas más complejas para los otros 2 juegos. 20:47 igual.
+
+* Sesión 3: Aplicación de resultados, retoques, informe y presentación
+
+** Pruebas cruzadas
 
  - Hacer lista de grupos (poner un nombre al grupo/nivel)
  - De cada grupo:
@@ -438,9 +455,6 @@ Cada grupo:
 - Redactar lo que vamos a hacer (un plan concreto), y cómo esperamos que funcione
 
 ** Seguir con el proyecto
-
-
-* Sesión 3: Aplicación de resultados, retoques, informe y presentación
 
 
 ** Qué incluir en el informe final
