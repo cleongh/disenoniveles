@@ -498,25 +498,79 @@ Es válido votarse a uno mismo
 
 *** Descripción
 
+Juego /top-down/, /dual-stick/ en el que hay que atravesar una "mazmorra" de habitaciones
+
 *** Movimiento
 
-*** Disparo
+Movimento ~WASD~ /palanca izquiera, se apunta con flechas de dirección o palanca derecha
+
+*** Vida
+
+Tenemos una serie de puntos de vida, como en el juego de /scroll lateral/
+
+El daño funciona de la misma manera
 
 *** Armas
 
+Tenemos varias armas posibles
+
+**** Arma básica
+
+El arma normal tiene poca potencia y tiene munición infinita
+
+**** Shotgun
+
+(Todos los juegos necesitan una)
+
+Cadencia de disparo baja, poca munición y ataque de dispersión
+
+**** Machine Gun
+
+Más munición, cadencia de disparo muy alta
+
+*** Disparo y recarga
+
+Hay munición global, y munición en el cargador
+
+Cuando se agota el cargador hay que recargar (activamente)
+
+#+REVEAL: split
+
+El tiempo de recarga (único para todas las armas) se encuentra en ~Recharging time~
+
+*** Dash
+
+Dash nos permite saltar y nos hace invulnerables
+
 *** Enemigos
+
+**** Zombie
+
+Te persigue y hace daño cuerpo a cuerpo
+
+**** Soldado
+
+Te persigue y te dispara cuando alcanza cierta distancia
 
 *** Powerups
 
-*** Llave-puerta
+Se pueden coger /power-ups/ que tienen un efecto limitado en tiempo
+
+- Velocidad
+- Invulnerabilidad
+- Potencia
+
+
+*** Puertas cerradas
+
+Sólo se pueden abrir con una llave (ver más adelante)
 
 *** Recursos
 
-**** Vida
+- Vida
+- Llave
+- Balas
 
-**** Balas
-
-*** Habitaciones
 
 ** Proceso (repetición)
 
