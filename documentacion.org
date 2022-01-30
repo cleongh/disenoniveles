@@ -538,7 +538,22 @@ Cuando se agota el cargador hay que recargar (activamente)
 
 El tiempo de recarga (único para todas las armas) se encuentra en ~Recharging time~
 
+#+REVEAL: split
+
+Cada arma hace un daño específico que puede configurarse en ~Weapon damage~
+
+#+REVEAL: split
+
+En la clase del jugador hay varios ~Maps~ usados para configurar las armas:
+
+- ~MaxMagazine~ (las balas que caben en cada cargador)
+- ~Has~ (las armas que tiene)
+
+
+
 *** Enemigos
+
+Los enemigos se mueven a través de una malla de navegación (~NavMesh~)
 
 **** Zombie
 
@@ -550,7 +565,7 @@ Te persigue y te dispara cuando alcanza cierta distancia
 
 *** Powerups
 
-Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~Super speed time~ segundos
+Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~Super speed time~ segundos en ~Super speed quantity~
 
 
 *** Puertas cerradas
