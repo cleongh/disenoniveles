@@ -538,10 +538,6 @@ Cuando se agota el cargador hay que recargar (activamente)
 
 El tiempo de recarga (único para todas las armas) se encuentra en ~Recharging time~
 
-*** Dash
-
-Dash nos permite saltar y nos hace invulnerables
-
 *** Enemigos
 
 **** Zombie
@@ -554,11 +550,7 @@ Te persigue y te dispara cuando alcanza cierta distancia
 
 *** Powerups
 
-Se pueden coger /power-ups/ que tienen un efecto limitado en tiempo
-
-- Velocidad
-- Invulnerabilidad
-- Potencia
+Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~Super speed time~ segundos
 
 
 *** Puertas cerradas
@@ -570,6 +562,11 @@ Sólo se pueden abrir con una llave (ver más adelante)
 - Vida
 - Llave
 - Balas
+
+** Opcional
+
+- /Power-ups/ de invulnerabilidad y de potencia de disparo (u otras cosas)
+- /Dash/
 
 
 ** Proceso (repetición)
@@ -583,9 +580,9 @@ Sólo se pueden abrir con una llave (ver más adelante)
 7. Aplicación de pruebas a versión final
 8. Conclusiones (y votaciones)
 
-* Sesión 5: Multijugador local
+* Sesión 5:
 
-** Cambios para que funcione el multijugador
+
 
 * Sesión 6: Finalización /dual-stick/
 
