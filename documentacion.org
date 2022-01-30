@@ -567,9 +567,14 @@ En ~ShootTask~ está ~Distance threshold~ para la distancia a la que ataca
 
 También ~Attack period~ que es el tiempo entre ataques
 
-**** Soldado
 
-Te persigue y te dispara cuando alcanza cierta distancia
+# **** Soldado
+
+# Te persigue y te dispara cuando alcanza cierta distancia
+
+**** Pinchos
+
+Si los tocas, te hacen daño
 
 *** Powerups
 
