@@ -555,9 +555,17 @@ En la clase del jugador hay varios ~Maps~ usados para configurar las armas:
 
 Los enemigos se mueven a través de una malla de navegación (~NavMesh~)
 
+Hacen un daño ~Damage done~, en la clase ~Enemy~ (clase padre)
+
 **** Zombie
 
 Te persigue y hace daño cuerpo a cuerpo
+
+#+REVEAL: split
+
+En ~ShootTask~ está ~Distance threshold~ para la distancia a la que ataca
+
+También ~Attack period~ que es el tiempo entre ataques
 
 **** Soldado
 
