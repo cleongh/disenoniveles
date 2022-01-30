@@ -510,6 +510,10 @@ Tenemos una serie de puntos de vida, como en el juego de /scroll lateral/
 
 El daño funciona de la misma manera
 
+#+REVEAL: split
+
+Al recibir daño, hay un pequeño empuje configurable en ~PushDamage~
+
 *** Armas
 
 Tenemos varias armas posibles
@@ -518,13 +522,13 @@ Tenemos varias armas posibles
 
 El arma normal tiene poca potencia y tiene munición infinita
 
-**** Shotgun
+**** TODO Shotgun
 
 (Todos los juegos necesitan una)
 
 Cadencia de disparo baja, poca munición y ataque de dispersión
 
-**** Machine Gun
+**** TODO Machine Gun
 
 Más munición, cadencia de disparo muy alta
 
@@ -581,11 +585,16 @@ Si los tocas, te hacen daño
 Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~Super speed time~ segundos en ~Super speed quantity~
 
 
-*** Puertas cerradas
+*** TODO Puertas cerradas
 
 Sólo se pueden abrir con una llave (ver más adelante)
 
+
 *** Recursos
+
+*************** TODO balas
+
+
 
 - Vida
 - Llave
@@ -595,6 +604,7 @@ Sólo se pueden abrir con una llave (ver más adelante)
 
 - /Power-ups/ de invulnerabilidad y de potencia de disparo (u otras cosas)
 - /Dash/
+- Movimiento del personaje con físicas
 
 
 ** Proceso (repetición)
