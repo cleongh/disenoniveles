@@ -483,12 +483,6 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 ** Exposición global a la clase
 
-** Votación
-
-¡Elegir una práctica favorita!
-
-Es válido votarse a uno mismo
-
 
 * Sesión 4: /Dual-stick/ cenital
 
@@ -639,6 +633,14 @@ Sólo se pueden abrir con una llave (ver más adelante)
 
 * Sesión 8: Narrativa
 * Sesión 9: Finalización /FPS/
+
+
+** Votación
+
+¡Elegir una práctica favorita!
+
+Es válido votarse a uno mismo
+
 
 # # Local variables:
 # # after-save-hook: org-re-reveal-export-to-html
