@@ -486,7 +486,11 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 * Sesión 4: /Dual-stick/ cenital
 
-** Objetivo
+** Objetivos
+
+- Hacer un nivel /por habitaciones/
+- Hacer una mazmorra sin habitaciones (todo seguido)
+
 
 ** Juego
 
