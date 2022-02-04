@@ -520,21 +520,19 @@ Tenemos varias armas posibles
 
 El arma normal tiene poca potencia y tiene munición infinita
 
-**** TODO Shotgun
+**** Shotgun
 
 (Todos los juegos necesitan una)
 
 Cadencia de disparo baja, poca munición y ataque de dispersión
 
-**** TODO Machine Gun
+**** Machine Gun
 
 Más munición, cadencia de disparo muy alta
 
 *** Disparo y recarga
 
-# Hay
-
-Hay munición global, y munición en el cargador
+Hay munición global por cada arma, y munición en el cargador
 
 Cuando se agota el cargador hay que recargar (activamente)
 
@@ -551,9 +549,8 @@ Cada arma hace un daño específico que puede configurarse en ~Weapon damage~
 En la clase del jugador hay varios ~Maps~ usados para configurar las armas:
 
 - ~MaxMagazine~ (las balas que caben en cada cargador)
+- ~Weapon fire rate~ (cadencia de disparo por arma)
 - ~Has~ (las armas que tiene)
-
-
 
 *** Enemigos
 
@@ -564,6 +561,8 @@ Hacen un daño ~Damage done~, en la clase ~Enemy~ (clase padre)
 **** Zombie
 
 Te persigue y hace daño cuerpo a cuerpo
+
+Se mueve mediante un árbol de comportamiento (que os explicarán más adelante)
 
 #+REVEAL: split
 
