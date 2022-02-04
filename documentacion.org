@@ -532,6 +532,8 @@ Más munición, cadencia de disparo muy alta
 
 *** Disparo y recarga
 
+# Hay
+
 Hay munición global, y munición en el cargador
 
 Cuando se agota el cargador hay que recargar (activamente)
