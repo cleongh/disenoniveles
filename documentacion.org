@@ -78,18 +78,18 @@ Creación por parejas de 3 niveles para:
 
 Las implementaciones disponibles ya os la damos hechas
 
-No hace falta que camibiéis nada, pero no está prohibido
+No hace falta que cambiéis nada, pero no está prohibido
 
-Están basadas en contenido core de UE para facilitar documentación y modificación
+Están basadas en contenido /core/ de UE para facilitar documentación y modificación
 
 *** La pareja ideal
 
-Tenéis libertad para crear parejas, pero los equipos en los que se combine capacidad de programación con capacidad de diseño, generalemente, funcionarán mejor
+Tenéis libertad para crear parejas, pero los equipos en los que se combine capacidad de programación con capacidad de diseño, generalmente, funcionarán mejor
 
 
 *** Pulido
 
-Los niveles no sólo tienen que ser jugables, también dar buena sensación y buen equilibrado
+Los niveles no solo tienen que ser jugables, también dar buena sensación y buen equilibrado
 
 Para ello haremos un poco de "trampa", permitiendo cambiar los parámetros de las mecánicas
 
@@ -142,12 +142,20 @@ Evidentemente, cuando hagamos las pruebas con los equipos de nuestros compañero
 
 Es la única manera de mejorar el gameplay
 
+*************** TODO hacer énfasis en esto, no suelen hacerlo ni comentarlo
+*************** END
+
+
 *** Entrega
 
 Un =.zip= con:
 
 - Un documento (PDF, preferiblemente) con los puntos [[concepto]], [[estudio]], [[elementos]], [[geometria]], [[pulido]] y [[aplicacion]]. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación
 - El proyecto de UE con la implementación (punto [[implementación]])
+
+#+REVEAL: split
+
+La idea es que la entrega sea el material que *se ha hecho en clase* (con algunas mejoras donde tenga sentido), el objetivo es no quitaros más tiempo de lo necesario fuera de las sesiones de clase
 
 
 *** Notas para todas las prácticas
@@ -222,7 +230,7 @@ En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
 
 ** Colores en /whiteboxing/
 
-Es muy útil añadir colores (materiales) a los bloques para indicar su semática:
+Es muy útil añadir colores (materiales) a los bloques para indicar su semántica:
 
 - Verde: seguro
 - Rojo: dañino
@@ -349,7 +357,7 @@ El /vigía/ va hacia derecha o izquierda hasta que se tope con un obstáculo (y 
 
 *** Eliminar enemigos
 
-Podemos eliminar enemigos de varias formas (cada golpe puede terner hacer distinto /daño/):
+Podemos eliminar enemigos de varias formas (cada golpe puede tener hacer distinto /daño/):
 
 # - Saltando sobre ellos, si son enemigos que no hacen daño al ser "pisados" (ver [[id:enemigos]])
 - Haciendo que caigan en trampas (ver [[id:enemigos]])
@@ -492,10 +500,57 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 # La idea es decirles la diferencia cuando el juego "va a ser mejor", aunque eso es un poco débil. Pensar por qué hago votaciones aparte de darles chocolate
 # Igual es decirles (si es que sale: "¿veis como gana siempre 1?" "¿Véis cómo los últimos o los primeros se llevan más puntos?" "¿Qué características nos llevan a 'mola más'?"")
+# También la idea de que lo que yo digo influye mucho
 
 * Sesión 4: /Dual-stick/ cenital
 
 # 2022: hay que hacer reflection en el proto anterior y proponer cambios
+
+** Zelda
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/qlehrp-WJn0?start=38" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Mecánicas que avanzan y desbloquean mundo y gameplay
+- Lucha sencilla, principalmente cuerpo a cuerpo
+- Ritmo lento, enfrentamiento basado en "saber qué hacer"
+- Puzzle, laberinto, descubrimiento
+
+** Enter the Gungeon
+
+#+REVEAL_HTML:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Bm0resa9hJ0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Armas y balas por todas partes
+- Dificultad creciente
+- Sensación arcade (si juegas muy bien, los recursos no importan tanto)
+- Pulido muy detallado
+
+** Hades
+
+#+REVEAL_HTML:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/Zpo2UgLkLxo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Diferentes estilos de juego según armas
+- Influencia de varios géneros (Diablo, /roguelikes/)
+- Gestión de avance en mazmorra
+- Economía de recursos y mejoras para avanzar
+- /Core loop/ moderno, con mejoras y narrativa
+
+** Gauntlet
+
+#+REVEAL_HTML:<iframe width="560" height="315" src="https://www.youtube.com/embed/LdP8x_Fpe4Q?start=295" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Pantalla compartida
+- Espacio para /multiplayer/
+- "Infinitos" enemigos
+- No hay munición
+- La vida es el recurso principal
 
 ** Objetivos
 
@@ -511,7 +566,7 @@ Juego /top-down/, /dual-stick/ en el que hay que atravesar una "mazmorra" de hab
 
 *** Movimiento
 
-Movimento ~WASD~ /palanca izquiera, se apunta con flechas de dirección o palanca derecha
+Movimiento ~WASD~ /palanca izquierda, se apunta con flechas de dirección o palanca derecha
 
 *** Vida
 
@@ -597,7 +652,7 @@ Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~
 
 *** Puertas cerradas
 
-Sólo se pueden abrir con una llave (ver más adelante)
+Solo se pueden abrir con una llave (ver más adelante)
 
 
 *** Recursos
@@ -617,21 +672,10 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Más enemigos
 - Tipos de llaves
 - Más armas (cuerpo a cuerpo, por ejemplo)
-- Habitaciones/nivel procedural
+- Habitaciones/nivel procedimental
   # Puede ser un random con cambios
 
 #+INCLUDE: "proceso.org" :minlevel 2
-
-# ** Proceso
-
-# 1. Objetivos de nivel/gameplay
-# 2. Perfilado de mecánicas
-# 3. Planteamiento de mapa/habitaciones/nivel
-# 4. Diseño de pruebas (experiencia/nivel/preguntas)
-# 5. Montaje de escenario
-# 6. Pruebas piloto
-# 7. Aplicación de pruebas a versión final
-# 8. Conclusiones
 
 * Sesión 5: Prototipos (habitaciones y continuo) y QA piloto
 
@@ -659,8 +703,82 @@ Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
 
 En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
 
+** Votación
+
 * Sesión 7: /Shooter/ en primera persona
 
+** DOOM
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iFnOLFd_ByQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Ritmo, batalla
+- Hay narrativa, pero secundaria
+- No ha realismo, hay /arcade/
+- Muchas balas, muchas armas
+- Se juega a "matar bichos"
+- Poca evolución de mecánicas
+
+
+** Might and Magic
+
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/f_Li7VoBTcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Puramente informativo en las primeras versiones
+- Evoluciona hacia "FPS", pero mantiene rol
+- Las dinámicas globales cambian por desaparecer los turnos
+
+
+** Halo
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/rI9j2q63H_M" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Dinámicas de combate complejas
+- Mecánicas adicionales (conducir, torretas)
+- Tipos de armas para enemigos
+- Diseño detallado de terreno y enemigos
+
+
+** Half-Life
+
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/U3blJroxaqs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Flexibilidad de armas, pero cada arma está pensada para un enemigo
+- No hay demasiada munición (pero sí de sobra)
+- Puzzles
+- Entorno y narrativa potentes
+- Juego con saltos y físicas
+
+** Skyrim
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/nr62-GnrrOs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- El control ya no es preciso en cuerpo a cuerpo
+- Aparece control preciso "lento" con arco
+- Relación mundo/personaje que elimina arcade y crea exploración
+- Fusión 1ª/3ª persona (mismas mecánicas porque no importa precisión)
+
+** Portal
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/SfuECdZDZvo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+#+REVEAL: split
+
+- Reinvención de puzzles en 1ª persona
+- Físicas y ritmo lento
+- Juego de cámara e información constante
+- Niveles puzzle muy complejos que funcionan en 1ª persona
 
 ** Objetivo
 
@@ -672,31 +790,95 @@ El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
 
 Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras
 
-# bubba y kiki
+# bubba y kaki
 
 ** Juego
 
 Las mecánicas van a ser las mismas que en el /top-down/, pero esta vez en primera persona
 
+#+REVEAL: split
+
+De hecho, puede ser interesante reutilizar las mecánicas que posiblemente hayáis añadido y *comparar*
+
+#+REVEAL: split
+
+*** Pasar elementos de un proyecto a otro en UE
+
+#+CAPTION: Se pueden migrar /uassets/ entre proyectos
+#+attr_html: :width 500px
+[[./images/20220208-194447_screenshot.png]]
+
 
 #+INCLUDE: "proceso.org" :minlevel 2
 
-# ** Proceso
-
-# https://stackoverflow.com/questions/47058372/in-org-mode-how-to-call-code-block-to-evaluate-from-other-org-file
 
 
 * Sesión 8: Narrativa
-* Sesión 9: Finalización /FPS/
+
+** Las historias
+
+El valor de las historias en la experiencia de un videojuego es (como en casi todo) muy grande
+
+Por tanto, vamos a contar, en nuestro nivel, una historia
+
+** TODO Componente ~Teller~
+
+En el proyecto hay un componente (~Teller~) que podéis añadir a cualquier ~Actor~
+
+#+REVEAL: split
+
+Este componente tiene una atributo ~Story~ (de tipo ~Text~) que contiene un texto que se mostrará cuando el jugador "hable" con el actor
+
+#+REVEAL: split
+
+Además, el componente se activa cuando estamos cerca y pulsamos ~Hablar~ (por defecto, la tecla =E=, configurable)
+
+** Enlazar geometría e historia
+
+Vamos a usar un esquema clásico principio-nudo-desenlace (aunque si encontráis una razón buena para otro esquema, adelante)
+
+#+REVEAL: split
+
+La geometría tiene que encajar con la narrativa contada (3 zonas, 3 episodios)
+
+** QA en la narrativa
+
+- ¿Se entiende la historia?
+- ¿Emociona la historia? ¿Qué emoción?
+- ¿Mejora la experiencia? ¿Cómo?
+- Preguntad por la percepción de tiempo, ritmo y evolución con y sin historia
+
+** Pruebas piloto
+
+Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que estar apuntados) retocar el prototipo de forma justificada, con /lo que hayamos averiguado/
+
+* Sesión 9: Finalización /FPS/ (y lo demás)
+
+** Finalizando
+
+- Retocar FPS con los cambios de las pruebas
+- Aprovechar para montar la entrega (documentación y paquetes con los niveles)
+
+** Pruebas finales y presentaciones
+
+** Votación
+
+# Mira lo que hay arriba, dependiendo de lo que haya salido, habrá que hacer discurso
 
 
-# ** Votación
+* Entrega
 
-# ¡Elegir una práctica favorita!
+La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es>]], con el material contado en la primera sesión
 
-# Es válido votarse a uno mismo
+#+REVEAL: split
+
+Fecha de entrega: *31 de marzo*
+
+Recordad: intentad enviar lo que se ha hecho en clase, no es necesario dedicar mucho más tiempo a los niveles (para que le dediquéis el tiempo al proyecto)
+
+(Que haya mucho plazo no significa que tengáis que dedicar mucho tiempo)
 
 
-# # Local variables:
-# # after-save-hook: org-re-reveal-export-to-html
-# # end:
+# Local variables:
+# after-save-hook: org-re-reveal-export-to-html
+# end:
