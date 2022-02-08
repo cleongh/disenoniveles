@@ -32,6 +32,7 @@
 #         Localización de puntos de recuperación/salvado
 
 
+# TODO para el 2023 habría que darles la plani cada 3 días, para que se gestionen: menos sorpresa, más control. De hecho, modificar para que siempre sea contar + prototipo y mecánicas si quieren, prototipo + piloto, cambios + final
 
 * Sesión 1
 
@@ -483,13 +484,23 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 ** Exposición global a la clase
 
+# 2022: En general, parece que no va a dar tiempo para el 2D a hacer 2 ciclos, aunque puede cambiar
+
+** Votaciones
+
+# que no se nos olvide hacer votaciones
+
+# La idea es decirles la diferencia cuando el juego "va a ser mejor", aunque eso es un poco débil. Pensar por qué hago votaciones aparte de darles chocolate
+# Igual es decirles (si es que sale: "¿veis como gana siempre 1?" "¿Véis cómo los últimos o los primeros se llevan más puntos?" "¿Qué características nos llevan a 'mola más'?"")
 
 * Sesión 4: /Dual-stick/ cenital
 
+# 2022: hay que hacer reflection en el proto anterior y proponer cambios
+
 ** Objetivos
 
-- Hacer un nivel /por habitaciones/
-- Hacer una mazmorra sin habitaciones (todo seguido)
+1. Hacer un nivel /por habitaciones/
+2. Hacer una mazmorra sin habitaciones (todo seguido)
 
 
 ** Juego
@@ -516,17 +527,17 @@ Al recibir daño, hay un pequeño empuje configurable en ~PushDamage~
 
 Tenemos varias armas posibles
 
-**** Arma básica
+*** Arma básica
 
 El arma normal tiene poca potencia y tiene munición infinita
 
-**** Shotgun
+*** Shotgun
 
 (Todos los juegos necesitan una)
 
 Cadencia de disparo baja, poca munición y ataque de dispersión
 
-**** Machine Gun
+*** Machine Gun
 
 Más munición, cadencia de disparo muy alta
 
@@ -558,7 +569,7 @@ Los enemigos se mueven a través de una malla de navegación (~NavMesh~)
 
 Hacen un daño ~Damage done~, en la clase ~Enemy~ (clase padre)
 
-**** Zombie
+*** Zombie
 
 Te persigue y hace daño cuerpo a cuerpo
 
@@ -575,7 +586,7 @@ También ~Attack period~ que es el tiempo entre ataques
 
 # Te persigue y te dispara cuando alcanza cierta distancia
 
-**** Pinchos
+*** Pinchos
 
 Si los tocas, te hacen daño
 
@@ -584,55 +595,94 @@ Si los tocas, te hacen daño
 Se pueden coger un /power-ups/ que cambia la velocidad (~Speed thing~) durante ~Super speed time~ segundos en ~Super speed quantity~
 
 
-*** TODO Puertas cerradas
+*** Puertas cerradas
 
 Sólo se pueden abrir con una llave (ver más adelante)
 
 
 *** Recursos
 
-*************** TODO balas
-
-
-
 - Vida
 - Llave
 - Balas
+
+*** Portal
+
+El nivel se acaba en el portal, igual que en juego 2D
 
 ** Opcional
 
 - /Power-ups/ de invulnerabilidad y de potencia de disparo (u otras cosas)
 - /Dash/
-- Movimiento del personaje con físicas
+- Más enemigos
+- Tipos de llaves
+- Más armas (cuerpo a cuerpo, por ejemplo)
+- Habitaciones/nivel procedural
+  # Puede ser un random con cambios
+
+#+INCLUDE: "proceso.org" :minlevel 2
+
+# ** Proceso
+
+# 1. Objetivos de nivel/gameplay
+# 2. Perfilado de mecánicas
+# 3. Planteamiento de mapa/habitaciones/nivel
+# 4. Diseño de pruebas (experiencia/nivel/preguntas)
+# 5. Montaje de escenario
+# 6. Pruebas piloto
+# 7. Aplicación de pruebas a versión final
+# 8. Conclusiones
+
+* Sesión 5: Prototipos (habitaciones y continuo) y QA piloto
 
 
-** Proceso (repetición)
+** Prueba piloto
 
-1. Objetivos de nivel/gameplay
-2. Perfilado de mecánicas
-3. Planteamiento de mapa/habitaciones/nivel
-4. Diseño de pruebas (experiencia/nivel/preguntas)
-5. Montaje de escenario
-6. Pruebas piloto
-7. Aplicación de pruebas a versión final
-8. Conclusiones (y votaciones)
+Hacer pruebas cruzadas y ver qué se puede cambiar y por qué
 
-* Sesión 5:
-
+Después, aplicar esos cambios y mejorar los prototipo
 
 
 * Sesión 6: Finalización /dual-stick/
 
+** Plan de cierre
+
+Antes de acabar el juego, haremos un plan concreto para que se pueda *cerrar* y terminar el nivel completo
+
+** Montar el juego
+
+Cerramos el nivel y pulimos
+
+** Pruebas finales
+
+Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
+
+En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
 
 * Sesión 7: /Shooter/ en primera persona
 
 
 ** Objetivo
 
-** Juego
- # pon mecánicas aquí
+Hacer un nivel FPS
 
-** Proceso
+El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
+
+#+REVEAL: split
+
+Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras
+
+# bubba y kiki
+
+** Juego
+
+Las mecánicas van a ser las mismas que en el /top-down/, pero esta vez en primera persona
+
+
+#+INCLUDE: "proceso.org" :minlevel 2
+
+# ** Proceso
+
 # https://stackoverflow.com/questions/47058372/in-org-mode-how-to-call-code-block-to-evaluate-from-other-org-file
 
 
@@ -640,11 +690,11 @@ Sólo se pueden abrir con una llave (ver más adelante)
 * Sesión 9: Finalización /FPS/
 
 
-** Votación
+# ** Votación
 
-¡Elegir una práctica favorita!
+# ¡Elegir una práctica favorita!
 
-Es válido votarse a uno mismo
+# Es válido votarse a uno mismo
 
 
 # # Local variables:

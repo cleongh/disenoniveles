@@ -1,0 +1,11 @@
+
+* Proceso
+
+1. Objetivos de nivel/gameplay
+2. Perfilado de mecánicas
+3. Planteamiento de mapa/habitaciones/nivel
+4. Diseño de pruebas (experiencia/nivel/preguntas)
+5. Montaje de escenario
+6. Pruebas piloto
+7. Aplicación de pruebas a versión final
+8. Conclusiones
