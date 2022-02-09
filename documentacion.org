@@ -679,6 +679,7 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 * Sesión 5: Prototipos (habitaciones y continuo) y QA piloto
 
+# 2022 Que hablen ellos, que den feedback. Ha salido poco en 2022
 
 ** Prueba piloto
 
@@ -704,6 +705,8 @@ Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
 En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
 
 ** Votación
+
+# ver lo que está pasando, anota y luego se lo cuentas
 
 * Sesión 7: /Shooter/ en primera persona
 
