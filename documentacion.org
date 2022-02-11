@@ -36,6 +36,8 @@
 
 * Sesión 1
 
+# 2022 Hay que enganchar el controlador "Spawn default controller" al bicho si lo espauneo
+
 # 1 hora contando, 2 horas haciendo
 
 * Profesor
@@ -687,6 +689,8 @@ Hacer pruebas cruzadas y ver qué se puede cambiar y por qué
 
 Después, aplicar esos cambios y mejorar los prototipo
 
+# 2022 nada, estos siguen programando. me piden enemigos que dejen de perseguirte cuando hay distancia (claro)
+
 
 * Sesión 6: Finalización /dual-stick/
 
@@ -814,7 +818,13 @@ De hecho, puede ser interesante reutilizar las mecánicas que posiblemente hayá
 
 #+INCLUDE: "proceso.org" :minlevel 2
 
+** Comparación
 
+- ¿Cómo cambian los valores entre primera persona y top-down?
+- ¿Cómo cambia la percepción del entorno?
+- ¿Gestión de enemigos y ataque?
+- ¿Me pierdo?
+- ¿Funciona la misma geometría?
 
 * Sesión 8: Narrativa
 
