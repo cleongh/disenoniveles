@@ -809,6 +809,10 @@ De hecho, puede ser interesante reutilizar las mecánicas que posiblemente hayá
 
 #+REVEAL: split
 
+El jugador aquí podrá también saltar (pero aquí no tiene más de un salto)
+
+#+REVEAL: split
+
 *** Pasar elementos de un proyecto a otro en UE
 
 #+CAPTION: Se pueden migrar /uassets/ entre proyectos
@@ -834,17 +838,17 @@ El valor de las historias en la experiencia de un videojuego es (como en casi to
 
 Por tanto, vamos a contar, en nuestro nivel, una historia
 
-** TODO Componente ~Teller~
+** Personajes no jugador (NPCs)
 
-En el proyecto hay un componente (~Teller~) que podéis añadir a cualquier ~Actor~
-
-#+REVEAL: split
-
-Este componente tiene una atributo ~Story~ (de tipo ~Text~) que contiene un texto que se mostrará cuando el jugador "hable" con el actor
+En el proyecto hay ahora un /blueprint/ NPC
 
 #+REVEAL: split
 
-Además, el componente se activa cuando estamos cerca y pulsamos ~Hablar~ (por defecto, la tecla =E=, configurable)
+Este componente tiene una componente de tipo ~TextRender~ que contiene un atributo ~Text~ que se mostrará cuando el jugador "hable" con el actor
+
+#+REVEAL: split
+
+Además, el texto se activa automáticamente cuando estamos a menos de ~Talking distance~ (distancia, en el personaje principal) y el texto dura ~Show time~ segundos en pantalla (en el NPC)
 
 ** Enlazar geometría e historia
 
@@ -887,9 +891,7 @@ La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es
 
 Fecha de entrega: *31 de marzo*
 
-Recordad: intentad enviar lo que se ha hecho en clase, no es necesario dedicar mucho más tiempo a los niveles (para que le dediquéis el tiempo al proyecto)
-
-(Que haya mucho plazo no significa que tengáis que dedicar mucho tiempo)
+Recordad: intentad enviar lo que se ha hecho en clase, no es necesario avanzar mucho más los niveles
 
 
 # Local variables:
