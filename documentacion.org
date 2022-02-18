@@ -34,6 +34,14 @@
 
 # TODO para el 2023 habría que darles la plani cada 3 días, para que se gestionen: menos sorpresa, más control. De hecho, modificar para que siempre sea contar + prototipo y mecánicas si quieren, prototipo + piloto, cambios + final
 
+
+# para 2023 Levels, donde estoy: backgtiund, geometría
+
+
+# Hacen 2 nivel en 2D porque implementan mucho y sólo se prueba 1 vez. yo doy feedback, y hablan poco
+# luego en el top-down no da tiempo a corregir, pasa casi lo mismo porque implementan mucho (1 hora de discusión al final, pero es verdad que yo me callo, hablan ellos y sale mejor, se ve avance y les felicito)
+# les digo que el FPS lo hagan más largo (este párrafo le escribo al empezar la sesión 7 de 9, recién les he contado lo que tienen que hacer). les he pedido hacer el FPS, y luego que lo pasen a top-down. a ver...
+
 * Sesión 1
 
 # 2022 Hay que enganchar el controlador "Spawn default controller" al bicho si lo espauneo
@@ -496,7 +504,7 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 # 2022: En general, parece que no va a dar tiempo para el 2D a hacer 2 ciclos, aunque puede cambiar
 
-** Votaciones
+# ** Votaciones
 
 # que no se nos olvide hacer votaciones
 
@@ -708,7 +716,7 @@ Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
 
 En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
 
-** Votación
+# ** Votación
 
 # ver lo que está pasando, anota y luego se lo cuentas
 
@@ -878,7 +886,7 @@ Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que est
 
 ** Pruebas finales y presentaciones
 
-** Votación
+# ** Votación
 
 # Mira lo que hay arriba, dependiendo de lo que haya salido, habrá que hacer discurso
 
@@ -892,6 +900,8 @@ La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es
 Fecha de entrega: *31 de marzo*
 
 Recordad: intentad enviar lo que se ha hecho en clase, no es necesario avanzar mucho más los niveles
+
+Para cada nivel, incluid un archivo de texto con los nombres de los miembros del grupo
 
 
 # Local variables:
