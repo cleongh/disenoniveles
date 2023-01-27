@@ -1,46 +1,18 @@
 #+TITLE: Montaje y pulido de niveles
 #+AUTHOR: Carlos León
+#+email: cleon@ucm.es
 #+LANGUAGE: es
-#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:nil reveal_single_file:t inline:nil
+#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:nil inline:nil
 #+REVEAL_INIT_OPTIONS: slideNumber:true
 #+REVEAL_EXTRA_CSS: css.css
 #+REVEAL_THEME: beige
 
 
-# Asumiendo que ya saben toda la teoría de diseño, les propondré 3 prácticas. Para cada una de las prácticas les haré un repaso de las mecánicas, les pondré algunos ejemplos, y les plantearé problemas concretos a resolver por parejas. Les daré todo implementado, pero si quieren modificar algo de BP, lo podemos hablar.
+* pendientes                                                       :noexport:
 
-# Tras cada implementación, haremos “evaluación y pulido cruzados”, de forma que se “cambien” los diseños y los pulan aunque no sean suyos.
-
-#     Nivel 2D lateral: un arcade simple con plataformas (a lo Mario Bros), obstáculos y demás
-#         desarrollo de nivel lineal (principio-fin, yendo “a la derecha”)
-#         pulido de velocidades, saltos y controles
-#         distancias, saltos, llegar o no llegar, dificultad
-#         bloqueo de retroceso por entorno (saltos para no poder ir atrás)
-#     Dual-stick shooter (top-down, como Enter the Gungeon)
-#         desarrollo de un mapa por habitaciones
-#         pulido de velocidades y “feeling”
-#         completado no lineal de nivel
-#         layout estático de enemigos en nivel
-#         configuración de layout dinámico de enemigos
-#         armas y powerups
-#         lógica llave-puerta
-#     1ª persona (Half-Life)
-#         Juego con campo de visión
-#         Escenario cerrado, para jugar con la información
-#         Enemigos “humanos”
-#         Relación y despliegue de armas/tipos de enemigos
-#         Localización de puntos de recuperación/salvado
+- Corregir scroll que se enganche al avanzar agachado
 
 
-# TODO para el 2023 habría que darles la plani cada 3 días, para que se gestionen: menos sorpresa, más control. De hecho, modificar para que siempre sea contar + prototipo y mecánicas si quieren, prototipo + piloto, cambios + final
-
-
-# para 2023 Levels, donde estoy: backgtiund, geometría
-
-
-# Hacen 2 nivel en 2D porque implementan mucho y sólo se prueba 1 vez. yo doy feedback, y hablan poco
-# luego en el top-down no da tiempo a corregir, pasa casi lo mismo porque implementan mucho (1 hora de discusión al final, pero es verdad que yo me callo, hablan ellos y sale mejor, se ve avance y les felicito)
-# les digo que el FPS lo hagan más largo (este párrafo le escribo al empezar la sesión 7 de 9, recién les he contado lo que tienen que hacer). les he pedido hacer el FPS, y luego que lo pasen a top-down. a ver...
 
 * Sesión 1
 
@@ -48,7 +20,7 @@
 
 # 1 hora contando, 2 horas haciendo
 
-* Profesor
+** Profesor
 
 - Carlos León <[[mailto:cleon@ucm.es][cleon@ucm.es]]>
 - Profesor FdI
@@ -58,31 +30,36 @@
 - Despacho 444 FdI
 
 
+** Introducción y objetivos
 
-* Introducción y objetivos
-
-** Motivación
+*** Motivación
 
 Uno de los roles más comunes en el diseño de videojuegos es el de creación de mapas/niveles, este módulo está pensado para reforzar vuestra habilidad como creadores de estos contenido
 
-* Objetivos
-
-
+*** Objetivos
 
 Saber crear de principio a fin niveles con una buena base técnica (objetivo, ideación, despliegue, comprobación...)
 
 #+REVEAL: split
 
-1. Poner en práctica la teoría para /crear/ niveles (en contraposición a mecánicas)
+1. Poner en práctica la teoría para /crear/ niveles (y no sólo mecánicas o lógica)
 2. Pulir nivel para jugabilidad y objetivos
 3. Hacer QA *útil* y aplicarlo
 
-*** En concreto
+*** El nivel /concreto/
 
-Creación por parejas de 3 niveles para:
-  - Un /scroll lateral/ de saltos
-  - Un /top-down dual-stick/
-  - Un /FPS/
+La ideación abstracta de mecánicas y dinámicas se vuelve concreta cuando hacemos nivel:
+
+- Distancias
+- Tiempo
+- Objetos
+- Enemigos
+
+*** Niveles
+
+- Un /scroll lateral/ de saltos
+- Un /top-down dual-stick/
+- Un /FPS/
 
 #+REVEAL: split
 
@@ -92,97 +69,194 @@ No hace falta que cambiéis nada, pero no está prohibido
 
 Están basadas en contenido /core/ de UE para facilitar documentación y modificación
 
-*** La pareja ideal
+*** Grupos
 
-Tenéis libertad para crear parejas, pero los equipos en los que se combine capacidad de programación con capacidad de diseño, generalmente, funcionarán mejor
+Haremos las prácticas en grupos de 2 o 3 personas
+
+Tenéis libertad para crear grupos, pero los equipos en los que se combine capacidad de programación con capacidad de diseño, generalmente, funcionarán mejor
 
 
-*** Pulido
 
-Los niveles no solo tienen que ser jugables, también dar buena sensación y buen equilibrado
 
-Para ello haremos un poco de "trampa", permitiendo cambiar los parámetros de las mecánicas
-
-*** QA
-
-Probaremos mucho nuestro juego, y una vez nos satisfaga, /haremos evaluación cruzada/
-
-Los resultados de esta evaluación *deberán servir para retocar*
-
-*** Aspectos opcionales
-
-- Programar BP en UE4 (aunque podremos)
-- Pulir aspectos visuales o sonoros (que son importantes)
 
 
 ** Cómo hacer cada nivel
 
-*** Proceso
 
-1. <<concepto>>Redactar el concepto general del nivel, destacando los objetivos
-2. <<estudio>>Estudio de alternativas similares en juegos (no hace falta hacerlo exhaustivo)
-3. <<elementos>>Listado de elementos principales (geometría, dinámicas...) con los que se va a conseguir trabajar los objetivos, justificados y de dónde se saca la inspiración
+*** Ideación
 
-#+REVEAL: split
+Aparte del nivel implementado, un documento que describa:
 
-4. [@4] <<geometria>>Geometría/mapa/esquema "en papel" del nivel, con objetos y enemigos, justificando cada parte
-5. <<implementación>>Implementación en UE
+- concepto y objetivo del nivel
+- referencias en las que nos basamos
+- las dinámicas buscadas
+- las mecánicas con las que se intentan conseguir
+- la estética con la que se comunica
+- las métricas de nivel y juego (qué se va a medir)
 
-#+REVEAL: split
+*** Concepto de nivel
 
-6. [@6] <<pulido>>Pruebas y pulido, documentado. Entre otras preguntas (todas las que se puedan) hay que saber:
-   a. ¿Cuánto tarda de media un jugador que juega por primera vez? ¿Uno que sepa?
-   b. ¿Dónde suele morir o atascarse? ¿Por qué?
-   c. ¿El jugador cumple objetivos de nivel?
-   d. ¿Qué ocurre cuando modificamos los parámetros de nivel?
-   e. *¿Está ocurriendo lo que queríamos que ocurriera (dinámicas, uso de elementos)?*
+Ayuda mucho dar un concepto único de nivel:
 
-#+REVEAL: split
-
-7. [@7] <<aplicacion>>Aplicación de los resultados de las pruebas en el prototipo, explicando qué se ha hecho y por qué
-   a. ¿Cuántos usuarios?
-   b. ¿Qué hemos descubierto?
-   c. ¿Cómo hemos pasado los hechos a datos?
-   d. ¿Cómo se han pasado los datos a modificaciones?
+- Objetivo de nivel: ¿para qué es este nivel?
+- Idea base: ¿qué idea queremos desarrollar sobre él?
+- Desafío base: ¿qué es difícil en el nivel?
+- Evolución: ¿cómo es el desenlace del nivel?
 
 
-*** Romper los juegos
+*** Prototipo I
 
-Evidentemente, cuando hagamos las pruebas con los equipos de nuestros compañeros, nuestra labor será /que todo falle y vaya mal/
+Implementación del MVP con las ideas principales
 
-Es la única manera de mejorar el gameplay
+Si se van a introducir mecánicas, éste es el momento
 
-*************** TODO hacer énfasis en esto, no suelen hacerlo ni comentarlo
-*************** END
+*** Pruebas I
 
-
-*** Entrega
-
-Un =.zip= con:
-
-- Un documento (PDF, preferiblemente) con los puntos [[concepto]], [[estudio]], [[elementos]], [[geometria]], [[pulido]] y [[aplicacion]]. El documento puede ser conciso y sencillo, lo importante es que estén las ideas. No hace falta ni escribir mucho ni dedicarle esfuerzo de maquetación
-- El proyecto de UE con la implementación (punto [[implementación]])
+#+begin_quote
+Los desarrolladores no sirven como sujetos de prueba
+#+end_quote
 
 #+REVEAL: split
 
-La idea es que la entrega sea el material que *se ha hecho en clase* (con algunas mejoras donde tenga sentido), el objetivo es no quitaros más tiempo de lo necesario fuera de las sesiones de clase
+
+- ¿Está presente el concepto que buscamos?
+- ¿Se cumple el objetivo de nivel?
+- ¿Se trabajan obligatoriamente las mecánicas?
+- ¿El jugador hacer lo que esperamos?
+- ¿Se entiende lo que queremos expresar?
+
+#+REVEAL: split
+
+Las primeras pruebas deberían servirnos para descubrir cuál es el funcionamiento general del nivel con usuarios externos
+
+*** Prototipo II
+
+A partir de los datos de las "Pruebas I", generamos un nivel "feature complete", con todo lo que buscamos, aún sin pulir métricas
+
+/Pero preparado para sacar datos y pulir/
+
+#+REVEAL: split
+
+Si se van a introducir elementos estéticos, lo ideal es hacerlo aquí
+
+*** Pruebas II
+
+- ¿La duración es apropiada?
+- ¿El jugador muere las veces que buscamos?
+- ¿Cuántas veces intenta el punto /X/?
+- ¿Hay vida/balas/tiempo suficientes?
+- ¿En qué puntos hay conflictos y el jugador se atasca?
+
+*** Prototipo final
+
+Todo terminado y pulido
+
+Las variables tienen los valores ya ajustados, y hemos aplicado los cambios de las Pruebas I y II
 
 
-*** Notas para todas las prácticas
+*** Pruebas finales
 
-**** Mando
+El juego es "el ideal", y ahora vamos a *comprobar que se cumplen*
+
+#+REVEAL: split
+
+La conclusión tiene que ser:
+
+#+begin_quote
+He comprobado que en mi nivel ocurre lo que yo quería que ocurriera
+#+end_quote
+
+#+REVEAL: split
+
+Tras cada prototipo final, se hará una presentación del desarrollo en clase
+
+*** Pruebas de esfuerzo y pruebas de gameplay
+
+Dos tipos de pruebas:
+
+- Intentando "romper" nivel o gameplay: /speed run/, no matar a nadie, escaparse, encontrar defectos
+- Jugar de la manera más natural, sin intentar saltarse las normas
+
+
+#+REVEAL: split
+
+Ambos tipos de pruebas son importantes y necesarios, y nos dan información complementaria sobre el nivel
+
+
+
+
+
+
+
+
+
+
+# **** Pulido
+
+# Los niveles no solo tienen que ser jugables, también dar buena sensación y buen equilibrado
+
+# Para ello haremos un poco de "trampa", permitiendo cambiar los parámetros de las mecánicas
+
+# **** QA
+
+# Probaremos mucho nuestro juego, y una vez nos satisfaga, /haremos evaluación cruzada/
+
+# Los resultados de esta evaluación *deberán servir para retocar*
+
+** Notas de implementación
+
+*** Mando
 
 Aunque no es estrictamente necesario, se pueden traer mandos (/gamepads/) para probar los juegos, principalmente para el /dual-stick/
 
-**** Edición de parámetros
+*** Edición de parámetros
 
 Todos los parámetros de personajes, nivel y demás que se puedan usar para equilibrar están puestos en la categoría "=Game=" en UE
 
-* /Whiteboxing/
 
-/Whiteboxing/ es el proceso de crear los volúmenes de un nivel, sin tener en cuenta los detalles (las mallas 3D)
+** Entrega
 
-(También lo veréis como /greyboxing/, /block out/, /brushes/ o /brush actors/)
+Un =.zip=, enviado por correo electrónico, con:
+
+- Un PDF con la documentación y nombres del equipo (un solo documento para los 3 niveles)
+- El proyecto de UE con la implementación
+
+*** Qué incluir en el informe final
+
+- Resumen de diseño
+- Mecánicas cambiadas
+- Mapas en texto
+- Plan de pruebas
+- Ejecución de pruebas y resultados
+- Datos de pruebas
+- Resumen de experiencia con otros juegos
+
+#+REVEAL: split
+
+Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
+  
+
+#+REVEAL: split
+
+La idea es que la entrega sea el material que *se ha hecho en clase* (con algunas mejoras donde tenga sentido)
+
+El objetivo es no quitaros más tiempo de lo necesario fuera de las sesiones
+
+#+REVEAL: split
+
+La entrega se hará *14 días después* de la última sesión
+
+Recordad: intentad enviar lo que se ha hecho en clase (lo podéis retocar después), no es necesario avanzar mucho más los niveles
+
+
+
+
+** Cómo crear los niveles
+
+*** Whiteboxing (recordatorio)
+
+/Whiteboxing/ (también /greyboxing/, /block out/, /brushes/ o /brush actors/) es el proceso de crear los volúmenes de un nivel, sin tener en cuenta los detalles (las mallas 3D)
+
 
 #+REVEAL: split
 
@@ -196,7 +270,7 @@ Es una técnica muy buena para saber qué se quiere antes de "vestir" el nivel e
 - Nos permite "aislarnos" de la parte estética
 - Podemos probar las mecánicas y dinámicas
 
-** Introducción al /whiteboxing/ en UE
+*** /Whiteboxing/ en UE
 
 Veamos algunos aspectos básicos para crear geometría en UE
 
@@ -207,13 +281,13 @@ Veamos algunos aspectos básicos para crear geometría en UE
 #+CAPTION: En UE se incluye la geometría como cualquier otro objeto de escena
 [[./images/20220122-222024_screenshot.png]]
 
-** Manipulación directa
+*** Manipulación directa
 
 
 #+CAPTION: Los objetos de /whiteboxing/ se pueden rotar, mover y escalar como cualquier ~Actor~
 [[./images/20220122-222215_screenshot.png]]
 
-** Colisión
+*** Colisión
 
 #+CAPTION: Los objetos tendrán, directamente, una malla de colisión que corresponderá a su geometría
 [[./images/20220122-222440_screenshot.png]]
@@ -222,7 +296,7 @@ Veamos algunos aspectos básicos para crear geometría en UE
 
 En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
 
-** Edición de geometría
+*** Edición de geometría
 
 #+CAPTION: Podemos pasar al modo de edición de geometría a través del menú superior
 [[./images/20220122-223117_screenshot.png]]
@@ -233,12 +307,19 @@ En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
 [[./images/20220122-223310_screenshot.png]]
 
 
-** Operaciones /booleanas/
+#+REVEAL: split
+
+
+#+caption: Barra de herramientas de edición simple de geometría
+[[./images/20220221-193300_screenshot.png]]
+
+
+*** Operaciones /booleanas/
 
 #+CAPTION: Las operaciones booleanas me permiten "sumar" o "restar"
 [[./images/boolean_22-01-2022_22-57.gif]]
 
-** Colores en /whiteboxing/
+*** Colores en /whiteboxing/
 
 Es muy útil añadir colores (materiales) a los bloques para indicar su semántica:
 
@@ -253,16 +334,32 @@ Es muy útil añadir colores (materiales) a los bloques para indicar su semánti
 [[./images/20220123-010134_screenshot.png]]
 
 
-* /Scroll lateral/
 
-** Introducción
+
+
+*** Información adicional
+
+#+caption: Es muy útil añadir distancias y elementos unitarios
+[[file:2023-01-25_13-07-48_screenshot.png]]
+
+
+
+
+
+
+
+
+** /Scroll lateral/
+
+*** Introducción
 
 En esta parte se va a trabajar en la creación de un nivel para un juego de mecánicas clásicas y sencillas de /arcade/ desplazamiento lateral
 
 Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a cualquier parte dentro de la zona delimitada)
 
 
-** Celeste
+
+*** Celeste
 
 #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HqL2XkPnZes?start=170" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -274,7 +371,7 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 - Añade mecánicas + elementos de nivel
   - Doble y triple "salto" buenos para corregir
 
-** Super Mario World
+*** Super Mario World
 
 #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/ta7ufW0Prws?start=4392" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -287,7 +384,7 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 - En general hay tiempo de sobra
 
 
-** Super Ghouls 'n Ghosts
+*** Super Ghouls 'n Ghosts
 
 #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/aK04DwRiIVg?start=324" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -352,12 +449,12 @@ Al ser tocados, un elemento del escenario desaparece (¿una barrera?)
 
 Es configurable en el atributo ~Barrier~
 
-*** Enemigos
-:PROPERTIES:
-:ID: enemigos
-:END:
+# *** Enemigos
+# :PROPERTIES:
+# :ID: enemigos
+# :END:
 
-**** Vigía
+*** Vigía
 :PROPERTIES:
 :ID:       vigia
 :END:
@@ -370,7 +467,7 @@ El /vigía/ va hacia derecha o izquierda hasta que se tope con un obstáculo (y 
 Podemos eliminar enemigos de varias formas (cada golpe puede tener hacer distinto /daño/):
 
 # - Saltando sobre ellos, si son enemigos que no hacen daño al ser "pisados" (ver [[id:enemigos]])
-- Haciendo que caigan en trampas (ver [[id:enemigos]])
+- Haciendo que caigan en trampas (ver [[id:vigia]])
 - Lanzándoles objetos que les dañen
 
 Cuando un enemigo es eliminado, desaparece de la escena
@@ -381,14 +478,18 @@ Cuando un enemigo es eliminado, desaparece de la escena
 [[./images/20220122-232410_screenshot.png]]
 
 
-** Objetivos
+*** Objetivos
 
-- Crear un nivel de /scroll lateral/ de 2-3 minutos de duración (sin /speed run/)
+- Crear un nivel de /scroll lateral/
 - Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
 - *Todas las mecánicas* deberán ser usadas en el nivel
 - Justificar y explicar las razones y el impacto *en el jugador* de cada decisión de diseño
 
-** Cosas que poner en práctica
+*** Habilidad
+
+Buscamos un gameplay que explore la habilidad de control en los juegos
+
+*** Cosas que poner en práctica
 
 - Gestión de tiempo de nivel
 - Bloqueo de avance con geometría/bloqueo
@@ -396,16 +497,19 @@ Cuando un enemigo es eliminado, desaparece de la escena
 - Ritmo desafío/descanso
 - Muestra de desafío y solución (enseñar bloque y enemigo antes de resolver)
 
-** Concepto de nivel
+*** Dificultad y castigo
 
-Ayuda mucho dar un concepto único de nivel:
+- Dificultad: nivel requerido para superar un desafío
+- Castigo: penalización por no superar el desafío
 
-- Objetivo de nivel: ¿para qué es este nivel?
-- Idea base: ¿qué idea queremos desarrollar sobre él?
-- Desafío base: ¿qué es difícil en el nivel?
-- Evolución: ¿cómo es el desenlace del nivel?
+#+REVEAL: split
 
-** Opcional
+Hay que gestionar la frustración generada por castigo y dificultad para mantener el desafío sin perder al jugador
+
+
+
+
+*** Opcional
 
 - Doble salto (parametrizable con el atributo ~Possible jumps~)
   - Que el segundo salto sea más corto
@@ -420,32 +524,34 @@ Ayuda mucho dar un concepto único de nivel:
 
 # 2022: 1 hora y media sin enseñarles UE, sólo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están sólo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
 
-* Sesión 2: Terminar prototipo 1, pruebas y captura de resultados
+*** Prototipo I, pruebas I
 
-** Compartir pantalla para toda la clase
+* Sesión 2 (/scroll lateral/): Prototipo II, pruebas II
+
+# ** Compartir pantalla para toda la clase
 
 # Crear sesión meet y que se conecten todos (2022 acabo a las 18:10)
 
 
-** Revisión inicial
+# ** Revisión inicial
 
-Cada grupo:
-- ¿Hemos definido objetivos/ideas de nivel?
-- ¿Nos satisface el concepto?
-- ¿Se cumplen?
+# Cada grupo:
+# - ¿Hemos definido objetivos/ideas de nivel?
+# - ¿Nos satisface el concepto?
+# - ¿Se cumplen?
 
 # 2022 Hacen juegos, todos o casi todos cambian las mecánicas (debería dar yo más mecánicas, aunque que las hagan ellos no está mal). No cambian mecánicas gordas, más de plataforma y cosas así, en realidad de nivel, no hay problema. En general guay, todos lo pensaron bien ayer.
 
 # 2022 Termino a las 18:40
 
-** Preparación de pruebas
+# ** Preparación de pruebas
 
 # 2022 Les digo que apunten rápido lo que quieren saber y apuntar. Les dejo tiempo para hacerlo (y que si van terminando empiecen a programar), y que en un rato hacemos check.
  
- 1. Preparar prototipo que pueda ser probado por otros equipos
- 2. Preparar cosas concretas que experimentar:
-   - *Lista* de preguntas, averiguaciones, observaciones
-   - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
+ # 1. Preparar prototipo que pueda ser probado por otros equipos
+ # 2. Preparar cosas concretas que experimentar:
+ #   - *Lista* de preguntas, averiguaciones, observaciones
+ #   - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
 
 # 2022. A las 19:00 les pregunto que me cuenten, a las 19:20 (8 grupos) termino y ya siguen. No tienen aún ninguno un nivel jugable (muchos están haciendo BP). Descanso a 19:28 más o menos. Voy a intentar que hoy no se haga QA, y que se hagan 2 QAs (y/o mejoras) el lunes. Jugaré con la exigencia. Vuelven a 19:45, muy serios.
 
@@ -454,53 +560,40 @@ Cada grupo:
 # 2022 20:24 ahí siguen, haciendo BPs. No han hecho nivel por ninguna parte, que yo vea. Bien
 # 2022 20:37 aquí seguimos, nadie ha hecho nivel. Pienso que tengo que pedir cosas más complejas para los otros 2 juegos. 20:47 igual.
 
-* Sesión 3: Aplicación de resultados, retoques, informe y presentación
+* Sesión 3 (/scroll lateral/): Prototipo final, pruebas finales, presentación
 
-** Pruebas cruzadas
+# ** Pruebas cruzadas
 
- - Hacer lista de grupos (poner un nombre al grupo/nivel)
- - De cada grupo:
-   - Un miembro irá a probar juegos
-   - Otro se quedará a recibir /testers/ (luego se cambia)
+#  - Hacer lista de grupos (poner un nombre al grupo/nivel)
+#  - De cada grupo:
+#    - Un miembro irá a probar juegos
+#    - Otro se quedará a recibir /testers/ (luego se cambia)
 
- #+REVEAL: split
+#  #+REVEAL: split
 
- - Tengamos cuidado con distancia
- - Si alguien no se siente cómodo con moverse, no está obligado
+#  - Tengamos cuidado con distancia
+#  - Si alguien no se siente cómodo con moverse, no está obligado
 
-** Resultado de pruebas prototipo
+# ** Resultado de pruebas prototipo
 
-- Redactar lo que hemos averiguado
-- Redactar lo que vamos a hacer (un plan concreto), y cómo esperamos que funcione
+# - Redactar lo que hemos averiguado
+# - Redactar lo que vamos a hacer (un plan concreto), y cómo esperamos que funcione
 
-** Aplicación de resultados en el prototipo
+# ** Aplicación de resultados en el prototipo
 
-- Aplicar el resultado de las pruebas al prototipo
-- Volver a efectuar pruebas, esta vez conclusivas: *¿el juego "funciona"?*
+# - Aplicar el resultado de las pruebas al prototipo
+# - Volver a efectuar pruebas, esta vez conclusivas: *¿el juego "funciona"?*
 
-** Evaluación final de niveles
+# ** Evaluación final de niveles
 
-Cada grupo hará un pequeño informe (rápido y conciso) de cada uno de los otros niveles:
+# Cada grupo hará un pequeño informe (rápido y conciso) de cada uno de los otros niveles:
 
-- Cosas reseñables
-- Limitaciones encontradas
-- Bugs de nivel
+# - Cosas reseñables
+# - Limitaciones encontradas
+# - Bugs de nivel
 
-** Qué incluir en el informe final
 
-- Resumen de diseño
-- Mecánicas cambiadas
-- Mapas en texto
-- Plan de pruebas
-- Ejecución de pruebas y resultados
-- Datos de pruebas
-- Resumen de experiencia con otros juegos
-
-#+REVEAL: split
-
-Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
-
-** Exposición global a la clase
+# ** Exposición global a la clase
 
 # 2022: En general, parece que no va a dar tiempo para el 2D a hacer 2 ciclos, aunque puede cambiar
 
@@ -515,6 +608,7 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 * Sesión 4: /Dual-stick/ cenital
 
 # 2022: hay que hacer reflection en el proto anterior y proponer cambios
+
 
 ** Zelda
 
@@ -552,7 +646,9 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
 ** Gauntlet
 
-#+REVEAL_HTML:<iframe width="560" height="315" src="https://www.youtube.com/embed/LdP8x_Fpe4Q?start=295" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# #+REVEAL_HTML:<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/tl-Iqb6u1eY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/tl-Iqb6u1eY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 #+REVEAL: split
 
@@ -567,8 +663,22 @@ Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 1. Hacer un nivel /por habitaciones/
 2. Hacer una mazmorra sin habitaciones (todo seguido)
 
+** Estrategia
 
-** Juego
+Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata (tenéis libertad para decidir)
+
+
+** Cosas que poner en práctica
+
+- Layout inicial de enemigos por zonas
+- Dinámica llave-puerta
+- Comportamiento de enemigos: ¿cuándo atacan?
+- Diferentes enemigos y combinaciones
+- "30 seconds of fun"
+- Despliegue de recursos vs. despliegue de desafíos
+- Zonas opcionales
+
+** Contenido y mecánicas
 
 *** Descripción
 
@@ -685,36 +795,35 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Habitaciones/nivel procedimental
   # Puede ser un random con cambios
 
-#+INCLUDE: "proceso.org" :minlevel 2
 
-* Sesión 5: Prototipos (habitaciones y continuo) y QA piloto
+* Sesión 5 (/dual stick/): Prototipo II, pruebas II
 
 # 2022 Que hablen ellos, que den feedback. Ha salido poco en 2022
 
-** Prueba piloto
+# ** Prueba piloto
 
-Hacer pruebas cruzadas y ver qué se puede cambiar y por qué
+# Hacer pruebas cruzadas y ver qué se puede cambiar y por qué
 
-Después, aplicar esos cambios y mejorar los prototipo
+# Después, aplicar esos cambios y mejorar los prototipo
 
 # 2022 nada, estos siguen programando. me piden enemigos que dejen de perseguirte cuando hay distancia (claro)
 
+# * Sesión 6: Finalización /dual-stick/
+* Sesión 6 (/dual stick/): Prototipo final, pruebas finales, presentación
 
-* Sesión 6: Finalización /dual-stick/
+# ** Plan de cierre
 
-** Plan de cierre
+# Antes de acabar el juego, haremos un plan concreto para que se pueda *cerrar* y terminar el nivel completo
 
-Antes de acabar el juego, haremos un plan concreto para que se pueda *cerrar* y terminar el nivel completo
+# ** Montar el juego
 
-** Montar el juego
+# Cerramos el nivel y pulimos
 
-Cerramos el nivel y pulimos
+# ** Pruebas finales
 
-** Pruebas finales
+# Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
 
-Hacemos prueba y generamos informe (con diseño, piloto y evaluación final)
-
-En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
+# En el informe tiene que estar tanto lo que escribimos nosotros como las opiniones de nuestros compañeros
 
 # ** Votación
 
@@ -722,9 +831,11 @@ En el informe tiene que estar tanto lo que escribimos nosotros como las opinione
 
 * Sesión 7: /Shooter/ en primera persona
 
+
+
 ** DOOM
 
-#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/iFnOLFd_ByQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/FYmSAHmPzJo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 #+REVEAL: split
 
@@ -754,7 +865,7 @@ En el informe tiene que estar tanto lo que escribimos nosotros como las opinione
 
 #+REVEAL: split
 
-- Dinámicas de combate complejas
+- Dinámicas de combate complejas y muy depuradas
 - Mecánicas adicionales (conducir, torretas)
 - Tipos de armas para enemigos
 - Diseño detallado de terreno y enemigos
@@ -795,7 +906,10 @@ En el informe tiene que estar tanto lo que escribimos nosotros como las opinione
 - Juego de cámara e información constante
 - Niveles puzzle muy complejos que funcionan en 1ª persona
 
+
+
 ** Objetivo
+
 
 Hacer un nivel FPS
 
@@ -803,9 +917,31 @@ El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
 
 #+REVEAL: split
 
-Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras
+Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras (/brushes/)
 
-# bubba y kaki
+#+REVEAL: split
+
+
+#+caption: Bouba y kiki
+[[file:2023-01-27_12-23-09_screenshot.png]]
+
+
+** Percepción
+
+En este nivel vamos a jugar con las dinámicas de percepción del entorno, y cómo se reacciona ante ellas
+
+- ¿Cómo informamos a nuestro jugador?
+- ¿Cómo le ocultamos información?
+
+** Cosas que poner en práctica
+
+- Línea de visión
+- Geometría "realista", tamaños y espacios plausibles
+- Flujo de acción con geometría
+- Equilibrado acción-descanso (/checkpoints/)
+- Guiado del personaje
+- NPCs
+- Narrativa
 
 ** Juego
 
@@ -819,7 +955,6 @@ De hecho, puede ser interesante reutilizar las mecánicas que posiblemente hayá
 
 El jugador aquí podrá también saltar (pero aquí no tiene más de un salto)
 
-#+REVEAL: split
 
 *** Pasar elementos de un proyecto a otro en UE
 
@@ -828,9 +963,8 @@ El jugador aquí podrá también saltar (pero aquí no tiene más de un salto)
 [[./images/20220208-194447_screenshot.png]]
 
 
-#+INCLUDE: "proceso.org" :minlevel 2
 
-** Comparación
+** Comparación 2D-3D
 
 - ¿Cómo cambian los valores entre primera persona y top-down?
 - ¿Cómo cambia la percepción del entorno?
@@ -838,15 +972,15 @@ El jugador aquí podrá también saltar (pero aquí no tiene más de un salto)
 - ¿Me pierdo?
 - ¿Funciona la misma geometría?
 
-* Sesión 8: Narrativa
+** Narrativa
 
-** Las historias
+*** Las historias
 
 El valor de las historias en la experiencia de un videojuego es (como en casi todo) muy grande
 
 Por tanto, vamos a contar, en nuestro nivel, una historia
 
-** Personajes no jugador (NPCs)
+*** Personajes no jugador (NPCs)
 
 En el proyecto hay ahora un /blueprint/ NPC
 
@@ -858,50 +992,55 @@ Este componente tiene una componente de tipo ~TextRender~ que contiene un atribu
 
 Además, el texto se activa automáticamente cuando estamos a menos de ~Talking distance~ (distancia, en el personaje principal) y el texto dura ~Show time~ segundos en pantalla (en el NPC)
 
-** Enlazar geometría e historia
+*** Enlazar geometría e historia
 
 Vamos a usar un esquema clásico principio-nudo-desenlace (aunque si encontráis una razón buena para otro esquema, adelante)
 
 #+REVEAL: split
 
-La geometría tiene que encajar con la narrativa contada (3 zonas, 3 episodios)
+La geometría tiene que encajar con la narrativa contada
 
-** QA en la narrativa
+*** QA en la narrativa
 
 - ¿Se entiende la historia?
 - ¿Emociona la historia? ¿Qué emoción?
 - ¿Mejora la experiencia? ¿Cómo?
 - Preguntad por la percepción de tiempo, ritmo y evolución con y sin historia
 
-** Pruebas piloto
+# *** Pruebas piloto
 
-Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que estar apuntados) retocar el prototipo de forma justificada, con /lo que hayamos averiguado/
+# Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que estar apuntados) retocar el prototipo de forma justificada, con /lo que hayamos averiguado/
 
-* Sesión 9: Finalización /FPS/ (y lo demás)
+* Sesión 8 (/FPS/): Prototipo II, pruebas II
 
-** Finalizando
+* Sesión 9 (/FPS/): Prototipo final, pruebas finales, presentación
 
-- Retocar FPS con los cambios de las pruebas
-- Aprovechar para montar la entrega (documentación y paquetes con los niveles)
 
-** Pruebas finales y presentaciones
+# * Sesión 9: Finalización /FPS/ (y lo demás)
+
+# ** Finalizando
+
+# - Retocar FPS con los cambios de las pruebas
+# - Aprovechar para montar la entrega (documentación y paquetes con los niveles)
+
+# ** Pruebas finales y presentaciones
 
 # ** Votación
 
 # Mira lo que hay arriba, dependiendo de lo que haya salido, habrá que hacer discurso
 
 
-* Entrega
+# * Entrega
 
-La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es>]], con el material contado en la primera sesión
+# La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es>]], con el material contado en la primera sesión
 
-#+REVEAL: split
+# #+REVEAL: split
 
-Fecha de entrega: *31 de marzo*
+# Fecha de entrega: *31 de marzo*
 
-Recordad: intentad enviar lo que se ha hecho en clase, no es necesario avanzar mucho más los niveles
+# Recordad: intentad enviar lo que se ha hecho en clase, no es necesario avanzar mucho más los niveles
 
-Para cada nivel, incluid un archivo de texto con los nombres de los miembros del grupo
+# Para cada nivel, incluid un archivo de texto con los nombres de los miembros del grupo
 
 
 # Local variables:

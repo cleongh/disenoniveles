@@ -22,3 +22,8 @@
 .figure-number {
     display: none;
 }
+
+
+span[class|=section-number] {
+    display: none;
+}
