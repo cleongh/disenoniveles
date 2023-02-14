@@ -2,7 +2,7 @@
 #+AUTHOR: Carlos León
 #+email: cleon@ucm.es
 #+LANGUAGE: es
-#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:nil inline:nil
+#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:t inline:nil
 #+REVEAL_INIT_OPTIONS: slideNumber:true
 #+REVEAL_EXTRA_CSS: css.css
 #+REVEAL_THEME: beige
@@ -616,9 +616,9 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 
 #+REVEAL: split
 
-- Mecánicas que avanzan y desbloquean mundo y gameplay
-- Lucha sencilla, principalmente cuerpo a cuerpo
-- Ritmo lento, enfrentamiento basado en "saber qué hacer"
+- Mecánicas que avanzan y desbloquean *mundo* y gameplay 
+- Lucha sencilla, principalmente cuerpo a cuerpo: encuentros por áreas
+- Ritmo lento, enfrentamiento basado estrategia
 - Puzzle, laberinto, descubrimiento
 
 ** Enter the Gungeon
@@ -631,6 +631,7 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 - Dificultad creciente
 - Sensación arcade (si juegas muy bien, los recursos no importan tanto)
 - Pulido muy detallado
+- Generación de mapa
 
 ** Hades
 
@@ -638,11 +639,12 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 
 #+REVEAL: split
 
-- Diferentes estilos de juego según armas
+- Diferentes estilos de juego según armas (no hay armas en el nivel)
 - Influencia de varios géneros (Diablo, /roguelikes/)
 - Gestión de avance en mazmorra
 - Economía de recursos y mejoras para avanzar
 - /Core loop/ moderno, con mejoras y narrativa
+- Narrativa por profundidad de nivel
 
 ** Gauntlet
 
@@ -652,10 +654,10 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 
 #+REVEAL: split
 
-- Pantalla compartida
-- Espacio para /multiplayer/
+- Pantalla compartida: tiene que haber sitio para todos
 - "Infinitos" enemigos
-- No hay munición
+- Spawners
+- No hay munición, pero hay "comida" y "pociones"
 - La vida es el recurso principal
 
 ** Objetivos
@@ -674,7 +676,6 @@ Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones,
 - Dinámica llave-puerta
 - Comportamiento de enemigos: ¿cuándo atacan?
 - Diferentes enemigos y combinaciones
-- "30 seconds of fun"
 - Despliegue de recursos vs. despliegue de desafíos
 - Zonas opcionales
 
@@ -756,6 +757,9 @@ En ~ShootTask~ está ~Distance threshold~ para la distancia a la que ataca
 
 También ~Attack period~ que es el tiempo entre ataques
 
+#+REVEAL: split
+
+En los zombies hay también un parámetro llamado ~Distancia de deteccion~ que permite establecer la distancia del personaje principal a la que se activan
 
 # **** Soldado
 
@@ -839,12 +843,13 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 #+REVEAL: split
 
-- Ritmo, batalla
-- Hay narrativa, pero secundaria
-- No ha realismo, hay /arcade/
-- Muchas balas, muchas armas
+
+- Ritmo, batalla: pasillos y habitaciones
+- Hay narrativa, pero secundaria (texturas, enemigos)
+- Arquitectura sin realismo, hay /arcade/
+- Recursos: muchas balas, muchas armas
 - Se juega a "matar bichos"
-- Poca evolución de mecánicas
+- Poca evolución de mecánicas: evolución de nivel
 
 
 ** Might and Magic
@@ -854,10 +859,9 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 #+REVEAL: split
 
-- Puramente informativo en las primeras versiones
-- Evoluciona hacia "FPS", pero mantiene rol
-- Las dinámicas globales cambian por desaparecer los turnos
-
+- Mapa es fundamental (mazmorras)
+- Versiones evolucionan hacia "FPS", pero mantiene rol: adaptación al movimiento
+- Al desaparecer turnos, el descanso del jugador está en el mapa (ya no puedo esperar)
 
 ** Halo
 
@@ -865,9 +869,10 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 #+REVEAL: split
 
-- Dinámicas de combate complejas y muy depuradas
-- Mecánicas adicionales (conducir, torretas)
-- Tipos de armas para enemigos
+- "30 seconds of fun"
+- Dinámicas de combate complejas y muy depuradas: mapa acompaña
+- Mecánicas adicionales (conducir, torretas), bien posicionadas
+- Tipos de armas para enemigos, hay recursos por el mapa y *en los enemigos*
 - Diseño detallado de terreno y enemigos
 
 
