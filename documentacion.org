@@ -333,6 +333,28 @@ Es muy útil añadir colores (materiales) a los bloques para indicar su semánti
 #+CAPTION: Para colorear geometría /brush/, elegimos el objeto, luego todas sus caras (=Shift-J=) y arrastramos material
 [[./images/20220123-010134_screenshot.png]]
 
+*** Terreno
+
+#+caption: También es posible crear /terreno/
+[[file:2023-02-24_18-55-38_screenshot.png]]
+
+#+REVEAL: split
+
+
+#+caption: Cuando estemos en modo /terreno/, pinchamos (en la pestaña apropiada), "Crear"
+[[file:2023-02-24_18-56-10_screenshot.png]]
+
+#+REVEAL: split
+
+
+#+caption: Y podemos "esculpir" el terreno de manera muy sencilla
+[[file:2023-02-24_18-57-51_screenshot.png]]
+
+#+REVEAL: split
+
+
+#+caption: Y crear escenarios de forma muy flexible
+[[file:2023-02-24_18-59-27_screenshot.png]]
 
 
 
