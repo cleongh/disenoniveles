@@ -1,0 +1,8 @@
+{
+    "extends": "@parcel/config-default",
+    "transformers": {
+	    "*.org": ["./org-transformer-reveal.mjs"],
+   	    "*.pu": ["./plantuml-transformer.mjs"],
+      	"*.dot": ["./graphviz-transformer.mjs"]
+    }
+}

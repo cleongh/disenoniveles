@@ -2,17 +2,7 @@
 #+AUTHOR: Carlos León
 #+email: cleon@ucm.es
 #+LANGUAGE: es
-#+OPTIONS: toc:nil reveal_history:t timestamp:nil date:nil author:nil num:t reveal_single_file:t inline:nil
-#+REVEAL_INIT_OPTIONS: slideNumber:true
-#+REVEAL_EXTRA_CSS: css.css
-#+REVEAL_THEME: beige
-
-
-* pendientes                                                       :noexport:
-
-- Corregir scroll que se enganche al avanzar agachado
-
-
+#+setupfile: setup.org
 
 * Sesión 1
 
@@ -24,7 +14,7 @@
 
 - Carlos León <[[mailto:cleon@ucm.es][cleon@ucm.es]]>
 - Profesor FdI
-- Docencia MVJ: Arquitectura UE, prácticas diseño de niveles, tutor de proyectos
+- Docencia MVJ: Refuerzo programación, arquitectura UE, prácticas diseño de niveles, tutor de proyectos
 - Videojuegos, Creatividad Computacional y Sistemas Cognitivos
 - [[http://nil.fdi.ucm.es][Grupo de investigación NIL]]
 - Despacho 444 FdI
@@ -42,7 +32,7 @@ Saber crear de principio a fin niveles con una buena base técnica (objetivo, id
 
 #+REVEAL: split
 
-1. Poner en práctica la teoría para /crear/ niveles (y no sólo mecánicas o lógica)
+1. Poner en práctica la teoría para /crear/ niveles (y no solo mecánicas o lógica)
 2. Pulir nivel para jugabilidad y objetivos
 3. Hacer QA *útil* y aplicarlo
 
@@ -274,54 +264,78 @@ Es una técnica muy buena para saber qué se quiere antes de "vestir" el nivel e
 
 Veamos algunos aspectos básicos para crear geometría en UE
 
-(Más información en [[https://docs.unrealengine.com/4.27/en-US/Basics/Actors/Brushes/][la documentación de UE]])
+(Más información en [[https://docs.unrealengine.com/latest/en-US/geometry-brush-actors-in-unreal-engine/][la documentación de UE]])
 
 #+REVEAL: split
 
-#+CAPTION: En UE se incluye la geometría como cualquier otro objeto de escena
+#+attr_html: :height 400
+#+CAPTION: En UE se incluye la edición de /geometry brushes/ (BSPs) como cualquier otro objeto de escena
 [[./images/20220122-222024_screenshot.png]]
 
 *** Manipulación directa
 
 
+#+attr_html: :height 400
 #+CAPTION: Los objetos de /whiteboxing/ se pueden rotar, mover y escalar como cualquier ~Actor~
 [[./images/20220122-222215_screenshot.png]]
 
 *** Colisión
 
+#+attr_html: :height 400
 #+CAPTION: Los objetos tendrán, directamente, una malla de colisión que corresponderá a su geometría
 [[./images/20220122-222440_screenshot.png]]
 
-#+REVEAL: split
 
-En teoría se puede cambiar la colisión con ~solidity~, pero no funciona bien
 
 *** Edición de geometría
 
+#+attr_html: :height 400
 #+CAPTION: Podemos pasar al modo de edición de geometría a través del menú superior
 [[./images/20220122-223117_screenshot.png]]
 
+
+** A partir de UE5 tenemos /Modeling Mode/
+
+#+attr_html: :height 400
+#+CAPTION: El [[https://docs.unrealengine.com/latest/en-US/getting-started-with-modeling-mode/][modo de modelado]] es más potente que los /brushes/
+[[./images/modelling.png]]
+
 #+REVEAL: split
 
-#+CAPTION: En este modo (/Brush Editing/) los vértices de los objetos son editables y puedo cambiar la forma de las mallas
-[[./images/20220122-223310_screenshot.png]]
+#+attr_html: :height 400
+#+CAPTION: Nos permite trabajar con mallas existentes
+[[./images/existentes.png]]
 
 
 #+REVEAL: split
 
+#+attr_html: :height 400
+#+CAPTION: Para subdividir una malla [[https://docs.unrealengine.com/latest/en-US/understanding-polygroups-in-unreal-engine/][PolyGroups]] o en caras "utilizables" (que no tienen por qué coincidir con los triángulos), usamos Attributes → GrpGen
+[[./images/grpgen.png]]
 
-#+caption: Barra de herramientas de edición simple de geometría
-[[./images/20220221-193300_screenshot.png]]
+
+# #+REVEAL: split
+
+# #+CAPTION: En este modo (/Brush Editing/) los vértices de los objetos son editables y puedo cambiar la forma de las mallas
+# [[./images/20220122-223310_screenshot.png]]
+
+
+# #+REVEAL: split
+
+
+# #+caption: Barra de herramientas de edición simple de geometría
+# [[./images/20220221-193300_screenshot.png]]
 
 
 *** Operaciones /booleanas/
 
+#+attr_html: :height 400
 #+CAPTION: Las operaciones booleanas me permiten "sumar" o "restar"
-[[./images/boolean_22-01-2022_22-57.gif]]
+[[./boolean.png]]
 
 *** Colores en /whiteboxing/
 
-Es muy útil añadir colores (materiales) a los bloques para indicar su semántica:
+Es muy útil añadir colores (materiales) a los bloques para indicar su semántica. Por ejemplo:
 
 - Verde: seguro
 - Rojo: dañino
@@ -330,29 +344,27 @@ Es muy útil añadir colores (materiales) a los bloques para indicar su semánti
 
 #+REVEAL: split
 
-#+CAPTION: Para colorear geometría /brush/, elegimos el objeto, luego todas sus caras (=Shift-J=) y arrastramos material
-[[./images/20220123-010134_screenshot.png]]
+Para colorear una malla, aunque sea hecha con la /modeling tool/, simplemente le agregamos un material
 
-*** Terreno
+** Terreno
 
-#+caption: También es posible crear /terreno/
+#+attr_html: :height 400
+#+caption: También es posible crear /terreno/ ("landscape")
 [[file:2023-02-24_18-55-38_screenshot.png]]
 
 #+REVEAL: split
 
-
-#+caption: Cuando estemos en modo /terreno/, pinchamos (en la pestaña apropiada), "Crear"
-[[file:2023-02-24_18-56-10_screenshot.png]]
+Elegimos las opciones y pinchamos en "Create""
 
 #+REVEAL: split
 
-
+#+attr_html: :height 400
 #+caption: Y podemos "esculpir" el terreno de manera muy sencilla
 [[file:2023-02-24_18-57-51_screenshot.png]]
 
 #+REVEAL: split
 
-
+#+attr_html: :height 400
 #+caption: Y crear escenarios de forma muy flexible
 [[file:2023-02-24_18-59-27_screenshot.png]]
 
@@ -361,13 +373,9 @@ Es muy útil añadir colores (materiales) a los bloques para indicar su semánti
 
 *** Información adicional
 
+#+attr_html: :height 400
 #+caption: Es muy útil añadir distancias y elementos unitarios
 [[file:2023-01-25_13-07-48_screenshot.png]]
-
-
-
-
-
 
 
 
@@ -544,7 +552,7 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 - Que la velocidad del jugador dependa de si lleva o no un objeto
 - Añadir tiempo (variables ~Time~ y ~HasTime~ en el /game mode/)
 
-# 2022: 1 hora y media sin enseñarles UE, sólo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están sólo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
+# 2022: 1 hora y media sin enseñarles UE, solo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están solo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
 
 *** Prototipo I, pruebas I
 
@@ -936,6 +944,9 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 
 ** Objetivo
+:PROPERTIES:
+:ID:       45b9b9d0-bce6-4c98-b09d-d7509f4d466f
+:END:
 
 
 Hacer un nivel FPS
@@ -1069,7 +1080,3 @@ La geometría tiene que encajar con la narrativa contada
 
 # Para cada nivel, incluid un archivo de texto con los nombres de los miembros del grupo
 
-
-# Local variables:
-# after-save-hook: org-re-reveal-export-to-html
-# end:

@@ -1,0 +1,35 @@
+{
+  "name": "disenoniveles",
+  "version": "1.0.0",
+  "description": "web games",
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
+  "scripts": {
+    "start": "npx parcel index.org --open",
+      "build": "npx parcel build index.org --public-url ./ --dist-dir docs",
+      "pdf": "npx decktape http://localhost:1234 index.pdf"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cleongh/disenoniveles.git"
+  },
+  "keywords": [
+    "web",
+    "games"
+  ],
+  "author": "cleon",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/cleongh/disenoniveles/issues"
+  },
+  "homepage": "https://github.com/cleongh/disenoniveles#readme",
+  "devDependencies": {
+      "parcel": "^2.10.3",
+      "decktape": "^3.11.0"
+  },
+  "dependencies": {
+    "reveal.js": "^5.0.2"
+  }
+}
