@@ -206,10 +206,9 @@ Todos los parámetros de personajes, nivel y demás que se puedan usar para equi
 
 ** Entrega
 
-Un =.zip=, enviado por correo electrónico, con:
-
-- Un PDF con la documentación y nombres del equipo (un solo documento para los 3 niveles)
+- Información de los componentes del grupo
 - El proyecto de UE con la implementación
+- El informe final
 
 *** Qué incluir en el informe final
 
@@ -354,7 +353,7 @@ Para colorear una malla, aunque sea hecha con la /modeling tool/, simplemente le
 
 #+REVEAL: split
 
-Elegimos las opciones y pinchamos en "Create""
+Elegimos las opciones y pinchamos en "Create"
 
 #+REVEAL: split
 
@@ -508,38 +507,31 @@ Cuando un enemigo es eliminado, desaparece de la escena
 [[./images/20220122-232410_screenshot.png]]
 
 
-*** Objetivos
-
-- Crear un nivel de /scroll lateral/
-- Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
-- *Todas las mecánicas* deberán ser usadas en el nivel
-- Justificar y explicar las razones y el impacto *en el jugador* de cada decisión de diseño
-
 *** Habilidad
 
 Buscamos un gameplay que explore la habilidad de control en los juegos
 
-*** Cosas que poner en práctica
+
+
+
+** Objetivos
+
+- Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
+- No es necesario que todas las mecánicas se usen en el nivel
+
+
+** Cosas que poner en práctica
 
 - Gestión de tiempo de nivel
 - Bloqueo de avance con geometría/bloqueo
 - Desafío y distancias salto/alcance, midiendo dificultad
 - Ritmo desafío/descanso
 - Muestra de desafío y solución (enseñar bloque y enemigo antes de resolver)
+- Gestionar dificultad y castigo
+  - Dificultad: nivel requerido para superar un desafío
+  - Castigo: penalización por no superar el desafío  
 
-*** Dificultad y castigo
-
-- Dificultad: nivel requerido para superar un desafío
-- Castigo: penalización por no superar el desafío
-
-#+REVEAL: split
-
-Hay que gestionar la frustración generada por castigo y dificultad para mantener el desafío sin perder al jugador
-
-
-
-
-*** Opcional
+** Opcional
 
 - Doble salto (parametrizable con el atributo ~Possible jumps~)
   - Que el segundo salto sea más corto
@@ -554,7 +546,7 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 
 # 2022: 1 hora y media sin enseñarles UE, solo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están solo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
 
-*** Prototipo I, pruebas I
+** Prototipo I, pruebas I
 
 * Sesión 2 (/scroll lateral/): Prototipo II, pruebas II
 
@@ -690,24 +682,6 @@ Hay que gestionar la frustración generada por castigo y dificultad para mantene
 - No hay munición, pero hay "comida" y "pociones"
 - La vida es el recurso principal
 
-** Objetivos
-
-1. Hacer un nivel /por habitaciones/
-2. Hacer una mazmorra sin habitaciones (todo seguido)
-
-** Estrategia
-
-Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata (tenéis libertad para decidir)
-
-
-** Cosas que poner en práctica
-
-- Layout inicial de enemigos por zonas
-- Dinámica llave-puerta
-- Comportamiento de enemigos: ¿cuándo atacan?
-- Diferentes enemigos y combinaciones
-- Despliegue de recursos vs. despliegue de desafíos
-- Zonas opcionales
 
 ** Contenido y mecánicas
 
@@ -819,6 +793,25 @@ Solo se pueden abrir con una llave (ver más adelante)
 
 El nivel se acaba en el portal, igual que en juego 2D
 
+
+
+
+** Objetivos
+
+- Hacer un nivel /por habitaciones/
+- Hacer una mazmorra sin habitaciones (todo seguido)
+- Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata (tenéis libertad para decidir)
+
+
+** Cosas que poner en práctica
+
+- Layout inicial de enemigos por zonas
+- Dinámica llave-puerta
+- Comportamiento de enemigos: ¿cuándo atacan?
+- Diferentes enemigos y combinaciones
+- Despliegue de recursos vs. despliegue de desafíos
+- Zonas opcionales
+  
 ** Opcional
 
 - /Power-ups/ de invulnerabilidad y de potencia de disparo (u otras cosas)
@@ -829,6 +822,7 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Habitaciones/nivel procedimental
   # Puede ser un random con cambios
 
+** Prototipo I, pruebas I
 
 * Sesión 5 (/dual stick/): Prototipo II, pruebas II
 
@@ -943,43 +937,7 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 
 
-** Objetivo
-:PROPERTIES:
-:ID:       45b9b9d0-bce6-4c98-b09d-d7509f4d466f
-:END:
 
-
-Hacer un nivel FPS
-
-El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
-
-#+REVEAL: split
-
-Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras (/brushes/)
-
-#+REVEAL: split
-
-
-#+caption: Bouba y kiki
-[[file:2023-01-27_12-23-09_screenshot.png]]
-
-
-** Percepción
-
-En este nivel vamos a jugar con las dinámicas de percepción del entorno, y cómo se reacciona ante ellas
-
-- ¿Cómo informamos a nuestro jugador?
-- ¿Cómo le ocultamos información?
-
-** Cosas que poner en práctica
-
-- Línea de visión
-- Geometría "realista", tamaños y espacios plausibles
-- Flujo de acción con geometría
-- Equilibrado acción-descanso (/checkpoints/)
-- Guiado del personaje
-- NPCs
-- Narrativa
 
 ** Juego
 
@@ -1002,13 +960,7 @@ El jugador aquí podrá también saltar (pero aquí no tiene más de un salto)
 
 
 
-** Comparación 2D-3D
 
-- ¿Cómo cambian los valores entre primera persona y top-down?
-- ¿Cómo cambia la percepción del entorno?
-- ¿Gestión de enemigos y ataque?
-- ¿Me pierdo?
-- ¿Funciona la misma geometría?
 
 ** Narrativa
 
@@ -1045,6 +997,43 @@ La geometría tiene que encajar con la narrativa contada
 - ¿Mejora la experiencia? ¿Cómo?
 - Preguntad por la percepción de tiempo, ritmo y evolución con y sin historia
 
+
+
+
+** Objetivo
+:PROPERTIES:
+:ID:       45b9b9d0-bce6-4c98-b09d-d7509f4d466f
+:END:
+
+- Hacer un nivel FPS
+- El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
+- Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras ([[https://es.wikipedia.org/wiki/Efecto_bouba/kiki][bouba y kiki]])
+- Información y percepción del entorno
+  - ¿Cómo informamos a nuestro jugador?
+  - ¿Cómo le ocultamos información?
+
+
+** Cosas que poner en práctica
+
+- Línea de visión
+- Geometría "realista", tamaños y espacios plausibles
+- Flujo de acción con geometría
+- Equilibrado acción-descanso (/checkpoints/)
+- Guiado del personaje
+- NPCs
+- Narrativa
+
+    
+
+** Comparación 2D-3D
+
+- ¿Cómo cambian los valores entre primera persona y top-down?
+- ¿Cómo cambia la percepción del entorno?
+- ¿Gestión de enemigos y ataque?
+- ¿Me pierdo?
+- ¿Funciona la misma geometría?
+
+** Prototipo I, pruebas I
 # *** Pruebas piloto
 
 # Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que estar apuntados) retocar el prototipo de forma justificada, con /lo que hayamos averiguado/
