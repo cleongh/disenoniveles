@@ -1,12 +1,14 @@
 #+TITLE: Montaje y pulido de niveles
-#+AUTHOR: Carlos León
 #+email: cleon@ucm.es
 #+LANGUAGE: es
 #+setupfile: setup.org
 
+# - mergear objetivos y cosas que poner en práctica
+# - quitar ""narrativa"
+
 * Sesión 1
 
-# 2022 Hay que enganchar el controlador "Spawn default controller" al bicho si lo espauneo
+# 2022 Hay que enganchar el controlador" Spawn default controller" al bicho si lo espauneo
 
 # 1 hora contando, 2 horas haciendo
 
@@ -103,7 +105,7 @@ Si se van a introducir mecánicas, éste es el momento
 *** Pruebas I
 
 #+begin_quote
-Los desarrolladores no sirven como sujetos de prueba
+En general, los desarrolladores no sirven como sujetos de prueba
 #+end_quote
 
 #+REVEAL: split
@@ -143,7 +145,6 @@ Todo terminado y pulido
 
 Las variables tienen los valores ya ajustados, y hemos aplicado los cambios de las Pruebas I y II
 
-
 *** Pruebas finales
 
 El juego es "el ideal", y ahora vamos a *comprobar que se cumplen*
@@ -173,14 +174,6 @@ Dos tipos de pruebas:
 Ambos tipos de pruebas son importantes y necesarios, y nos dan información complementaria sobre el nivel
 
 
-
-
-
-
-
-
-
-
 # **** Pulido
 
 # Los niveles no solo tienen que ser jugables, también dar buena sensación y buen equilibrado
@@ -206,24 +199,24 @@ Todos los parámetros de personajes, nivel y demás que se puedan usar para equi
 
 ** Entrega
 
-- Información de los componentes del grupo
-- El proyecto de UE con la implementación
-- El informe final
 
-*** Qué incluir en el informe final
-
-- Resumen de diseño
-- Mecánicas cambiadas
-- Mapas en texto
-- Plan de pruebas
-- Ejecución de pruebas y resultados
-- Datos de pruebas
-- Resumen de experiencia con otros juegos
+Un video por nivel (compartido por correo electrónico con [[mailto:cleon@ucm.es][cleon@ucm.es]])
 
 #+REVEAL: split
 
-Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
-  
+- Decir quiénes son los componentes del grupo
+- Decir qué se busca en en nivel
+- Explicar brevemente las ideas principales
+- Comentar Mecánicas cambiadas respecto a la implementación que se os da
+- El gameplay del nivel completo
+- Resumir el plan de pruebas
+- Ejecución de pruebas y resultados (incluid, idealmente, al menos 1 prueba, puede valer como gameplay si se ve todo el nivel)
+- Explicar al final las conclusiones de las pruebas y si se ha llegado a los objetivos
+- Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
+
+#+REVEAL: split
+
+Si para algún grupo es más sencillo escribir que grabar la voz, podéis enviarlo también así
 
 #+REVEAL: split
 
@@ -233,7 +226,7 @@ El objetivo es no quitaros más tiempo de lo necesario fuera de las sesiones
 
 #+REVEAL: split
 
-La entrega se hará *14 días después* de la última sesión
+La entrega se hará hasta *30 días después* de la última sesión
 
 Recordad: intentad enviar lo que se ha hecho en clase (lo podéis retocar después), no es necesario avanzar mucho más los niveles
 
@@ -283,7 +276,6 @@ Veamos algunos aspectos básicos para crear geometría en UE
 #+attr_html: :height 400
 #+CAPTION: Los objetos tendrán, directamente, una malla de colisión que corresponderá a su geometría
 [[./images/20220122-222440_screenshot.png]]
-
 
 
 *** Edición de geometría
@@ -386,8 +378,6 @@ En esta parte se va a trabajar en la creación de un nivel para un juego de mec�
 
 Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a cualquier parte dentro de la zona delimitada)
 
-
-
 *** Celeste
 
 #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HqL2XkPnZes?start=170" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -411,7 +401,6 @@ Sigue un sistema básico 2D en un nivel de desplazamiento abierto (se puede ir a
 - Habilidad de movimiento
   - No hay doble salto, hay que hacerlo bien a la primera
 - En general hay tiempo de sobra
-
 
 *** Super Ghouls 'n Ghosts
 
@@ -440,8 +429,6 @@ El personaje puede agacharse, reduciendo su altura a un multiplicador (*parámet
 Salto sencillo, de altura *parametrizable*
 
 Es posible añadir movimiento lateral al salto (es decir, cambiar la dirección en el aire), *parametrizable* respecto a la velocidad básica en el suelo
-
-
 
 *** Varios saltos
 
@@ -511,18 +498,17 @@ Cuando un enemigo es eliminado, desaparece de la escena
 
 Buscamos un gameplay que explore la habilidad de control en los juegos
 
-
-
-
 ** Objetivos
 
 - Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
+- Cámara correcta: veo lo que necesito y no más siempre
+- Luces y elementos para guiar
+- Gameplay de arcade: reactivo, "rápido"
 - No es necesario que todas las mecánicas se usen en el nivel
+- Gestión de tiempo de nivel (saber cuánto tiempo queremos, por qué y cuánto se tarda de verdad)
 
+#+REVEAL: split
 
-** Cosas que poner en práctica
-
-- Gestión de tiempo de nivel
 - Bloqueo de avance con geometría/bloqueo
 - Desafío y distancias salto/alcance, midiendo dificultad
 - Ritmo desafío/descanso
@@ -798,20 +784,17 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 ** Objetivos
 
-- Hacer un nivel /por habitaciones/
-- Hacer una mazmorra sin habitaciones (todo seguido)
-- Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata (tenéis libertad para decidir)
-
-
-** Cosas que poner en práctica
-
+- Hacer un nivel /por habitaciones/: zonas concretas con objetivo concreto
+- Cámara correcta: veo lo que necesito y no más siempre
+- Luces y elementos para guiar
+- Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata. No es estrategia, sino visión general
 - Layout inicial de enemigos por zonas
-- Dinámica llave-puerta
+- Dinámica llave-puerta (ver cerradura, buscar llave)
 - Comportamiento de enemigos: ¿cuándo atacan?
-- Diferentes enemigos y combinaciones
+- Diferentes enemigos y combinaciones para zonas de dinámica diferentes
 - Despliegue de recursos vs. despliegue de desafíos
-- Zonas opcionales
-  
+- Zonas opcionales: premio por buscar
+
 ** Opcional
 
 - /Power-ups/ de invulnerabilidad y de potencia de disparo (u otras cosas)
@@ -876,16 +859,16 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Poca evolución de mecánicas: evolución de nivel
 
 
-** Might and Magic
+# ** Might and Magic
 
 
-#+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/f_Li7VoBTcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+# #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/f_Li7VoBTcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-#+REVEAL: split
+# #+REVEAL: split
 
-- Mapa es fundamental (mazmorras)
-- Versiones evolucionan hacia "FPS", pero mantiene rol: adaptación al movimiento
-- Al desaparecer turnos, el descanso del jugador está en el mapa (ya no puedo esperar)
+# - Mapa es fundamental (mazmorras)
+# - Versiones evolucionan hacia "FPS", pero mantiene rol: adaptación al movimiento
+# - Al desaparecer turnos, el descanso del jugador está en el mapa (ya no puedo esperar)
 
 ** Halo
 
@@ -898,7 +881,6 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Mecánicas adicionales (conducir, torretas), bien posicionadas
 - Tipos de armas para enemigos, hay recursos por el mapa y *en los enemigos*
 - Diseño detallado de terreno y enemigos
-
 
 ** Half-Life
 
@@ -930,10 +912,10 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 #+REVEAL: split
 
-- Reinvención de puzzles en 1ª persona
+- Reinvención de puzles en 1ª persona
 - Físicas y ritmo lento
 - Juego de cámara e información constante
-- Niveles puzzle muy complejos que funcionan en 1ª persona
+- Niveles puzle muy complejos que funcionan en 1ª persona
 
 
 
@@ -1013,25 +995,23 @@ La geometría tiene que encajar con la narrativa contada
   - ¿Cómo le ocultamos información?
 
 
-** Cosas que poner en práctica
-
-- Línea de visión
+- Línea de visión: ver lo necesario, no ver lo oculto
+- Forzar dinámica de movimiento para "mirar", hacer que el jugador se desplace para saber lo que hay
 - Geometría "realista", tamaños y espacios plausibles
-- Flujo de acción con geometría
 - Equilibrado acción-descanso (/checkpoints/)
-- Guiado del personaje
-- NPCs
-- Narrativa
+- Motivación narrativa
+- Colocación de NPCs que dan un problema y motivan la historia
+- Descubrimiento de zonas y descripción de la importancia y la semántica por geometría (salir de túnel y ver el templo en lo alto de la montaña)
 
-    
+   
 
-** Comparación 2D-3D
+# ** Comparación 2D-3D
 
-- ¿Cómo cambian los valores entre primera persona y top-down?
-- ¿Cómo cambia la percepción del entorno?
-- ¿Gestión de enemigos y ataque?
-- ¿Me pierdo?
-- ¿Funciona la misma geometría?
+# - ¿Cómo cambian los valores entre primera persona y top-down?
+# - ¿Cómo cambia la percepción del entorno?
+# - ¿Gestión de enemigos y ataque?
+# - ¿Me pierdo?
+# - ¿Funciona la misma geometría?
 
 ** Prototipo I, pruebas I
 # *** Pruebas piloto
