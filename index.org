@@ -988,13 +988,13 @@ La geometría tiene que encajar con la narrativa contada
 :END:
 
 - Hacer un nivel FPS
-- El escenario será continuo, pero habrá 3 "zonas" o entornos diferentes
 - Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras ([[https://es.wikipedia.org/wiki/Efecto_bouba/kiki][bouba y kiki]])
 - Información y percepción del entorno
   - ¿Cómo informamos a nuestro jugador?
   - ¿Cómo le ocultamos información?
 
-
+#+REVEAL: split
+    
 - Línea de visión: ver lo necesario, no ver lo oculto
 - Forzar dinámica de movimiento para "mirar", hacer que el jugador se desplace para saber lo que hay
 - Geometría "realista", tamaños y espacios plausibles
