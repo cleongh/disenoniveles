@@ -500,6 +500,7 @@ Buscamos un gameplay que explore la habilidad de control en los juegos
 
 ** Objetivos
 
+- Nivel tipo /Super Mario Bros/
 - Nivel "lineal" (no necesariamente la geometría, pero sí el desarrollo: no se pasa 2 veces por un sitio)
 - Cámara correcta: veo lo que necesito y no más siempre
 - Luces y elementos para guiar
@@ -784,7 +785,7 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 ** Objetivos
 
-- Hacer un nivel /por habitaciones/: zonas concretas con objetivo concreto
+- Hacer un nivel /por habitaciones/ tipo mazmorra /A Link to the Past/
 - Cámara correcta: veo lo que necesito y no más siempre
 - Luces y elementos para guiar
 - Buscamos un gameplay en el que el jugador /planee/ su movimiento y sus acciones, de forma más o menos inmediata. No es estrategia, sino visión general
@@ -987,7 +988,7 @@ La geometría tiene que encajar con la narrativa contada
 :ID:       45b9b9d0-bce6-4c98-b09d-d7509f4d466f
 :END:
 
-- Hacer un nivel FPS
+- Hacer un nivel FPS tipo /The Elder Scrolls/
 - Nos faltarán modelos para diferenciar el entorno, pero lo sustituiremos con formas geométricas claras ([[https://es.wikipedia.org/wiki/Efecto_bouba/kiki][bouba y kiki]])
 - Información y percepción del entorno
   - ¿Cómo informamos a nuestro jugador?
