@@ -6,7 +6,7 @@
 # - mergear objetivos y cosas que poner en práctica
 # - quitar ""narrativa"
 
-* Sesión 1
+* Sesión 1: /scroll lateral/
 
 # 2022 Hay que enganchar el controlador" Spawn default controller" al bicho si lo espauneo
 
@@ -214,9 +214,6 @@ Un video por nivel (compartido por correo electrónico con [[mailto:cleon@ucm.es
 - Explicar al final las conclusiones de las pruebas y si se ha llegado a los objetivos
 - Y, en general, todo lo relevante y todo lo que hemos ideo apuntando
 
-#+REVEAL: split
-
-Si para algún grupo es más sencillo escribir que grabar la voz, podéis enviarlo también así
 
 #+REVEAL: split
 
@@ -533,43 +530,6 @@ Buscamos un gameplay que explore la habilidad de control en los juegos
 
 # 2022: 1 hora y media sin enseñarles UE, solo "diciéndoles que se lo voy a enseñar". En el aula, que no había labo. Pero es verdad que arranco lento por eso. Otros 15 min de contarles el juego y un ejemplo con whitebox. Total, que a las 8 empiezan a ponerse. Hacen grupos de 3 algunos, ni caso me hacen. A las 8.30 están solo con el papel. No hago 3 juegos en la vida, creo. Debería montar FPS antes que top-down, creo. Aunque les he dicho que el top-down era más importante. Es verdad que van a hacer el nivel con elena y maxi. Hasta las 21:00 parece que siguen ideando.
 
-** Prototipo I, pruebas I
-
-* Sesión 2 (/scroll lateral/): Prototipo II, pruebas II
-
-# ** Compartir pantalla para toda la clase
-
-# Crear sesión meet y que se conecten todos (2022 acabo a las 18:10)
-
-
-# ** Revisión inicial
-
-# Cada grupo:
-# - ¿Hemos definido objetivos/ideas de nivel?
-# - ¿Nos satisface el concepto?
-# - ¿Se cumplen?
-
-# 2022 Hacen juegos, todos o casi todos cambian las mecánicas (debería dar yo más mecánicas, aunque que las hagan ellos no está mal). No cambian mecánicas gordas, más de plataforma y cosas así, en realidad de nivel, no hay problema. En general guay, todos lo pensaron bien ayer.
-
-# 2022 Termino a las 18:40
-
-# ** Preparación de pruebas
-
-# 2022 Les digo que apunten rápido lo que quieren saber y apuntar. Les dejo tiempo para hacerlo (y que si van terminando empiecen a programar), y que en un rato hacemos check.
- 
- # 1. Preparar prototipo que pueda ser probado por otros equipos
- # 2. Preparar cosas concretas que experimentar:
- #   - *Lista* de preguntas, averiguaciones, observaciones
- #   - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
-
-# 2022. A las 19:00 les pregunto que me cuenten, a las 19:20 (8 grupos) termino y ya siguen. No tienen aún ninguno un nivel jugable (muchos están haciendo BP). Descanso a 19:28 más o menos. Voy a intentar que hoy no se haga QA, y que se hagan 2 QAs (y/o mejoras) el lunes. Jugaré con la exigencia. Vuelven a 19:45, muy serios.
-
-# 2022 19:52, creo que ya programamos hasta el final
-
-# 2022 20:24 ahí siguen, haciendo BPs. No han hecho nivel por ninguna parte, que yo vea. Bien
-# 2022 20:37 aquí seguimos, nadie ha hecho nivel. Pienso que tengo que pedir cosas más complejas para los otros 2 juegos. 20:47 igual.
-
-* Sesión 3 (/scroll lateral/): Prototipo final, pruebas finales, presentación
 
 # ** Pruebas cruzadas
 
@@ -806,23 +766,6 @@ El nivel se acaba en el portal, igual que en juego 2D
 - Habitaciones/nivel procedimental
   # Puede ser un random con cambios
 
-** Prototipo I, pruebas I
-
-* Sesión 5 (/dual stick/): Prototipo II, pruebas II
-
-# 2022 Que hablen ellos, que den feedback. Ha salido poco en 2022
-
-# ** Prueba piloto
-
-# Hacer pruebas cruzadas y ver qué se puede cambiar y por qué
-
-# Después, aplicar esos cambios y mejorar los prototipo
-
-# 2022 nada, estos siguen programando. me piden enemigos que dejen de perseguirte cuando hay distancia (claro)
-
-# * Sesión 6: Finalización /dual-stick/
-* Sesión 6 (/dual stick/): Prototipo final, pruebas finales, presentación
-
 # ** Plan de cierre
 
 # Antes de acabar el juego, haremos un plan concreto para que se pueda *cerrar* y terminar el nivel completo
@@ -841,10 +784,7 @@ El nivel se acaba en el portal, igual que en juego 2D
 
 # ver lo que está pasando, anota y luego se lo cuentas
 
-* Sesión 7: /Shooter/ en primera persona
-
-
-
+* Sesión 7: /FPS/ 
 ** DOOM
 
 #+REVEAL_HTML: <iframe width="560" height="315" src="https://www.youtube.com/embed/FYmSAHmPzJo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -1014,39 +954,54 @@ La geometría tiene que encajar con la narrativa contada
 # - ¿Me pierdo?
 # - ¿Funciona la misma geometría?
 
-** Prototipo I, pruebas I
-# *** Pruebas piloto
 
-# Es el momento de hacer pruebas piloto y, tras los resultados (que tienen que estar apuntados) retocar el prototipo de forma justificada, con /lo que hayamos averiguado/
+* I - Prototipo
 
-* Sesión 8 (/FPS/): Prototipo II, pruebas II
+- Ideación (objetivos y demás)
+- Prototipo en papel
+- Algo de construcción en UE
 
-* Sesión 9 (/FPS/): Prototipo final, pruebas finales, presentación
+* II - Prototipo, y pruebas
 
+- Prototipo en whitebox
+- Pruebas (20:15)
 
-# * Sesión 9: Finalización /FPS/ (y lo demás)
+# ** Compartir pantalla para toda la clase
 
-# ** Finalizando
-
-# - Retocar FPS con los cambios de las pruebas
-# - Aprovechar para montar la entrega (documentación y paquetes con los niveles)
-
-# ** Pruebas finales y presentaciones
-
-# ** Votación
-
-# Mira lo que hay arriba, dependiendo de lo que haya salido, habrá que hacer discurso
+# Crear sesión meet y que se conecten todos (2022 acabo a las 18:10)
 
 
-# * Entrega
+# ** Revisión inicial
 
-# La entrega se hará por correo electrónico [[mailto:cleon@ucm.es][<cleon@ucm.es>]], con el material contado en la primera sesión
+# Cada grupo:
+# - ¿Hemos definido objetivos/ideas de nivel?
+# - ¿Nos satisface el concepto?
+# - ¿Se cumplen?
 
-# #+REVEAL: split
+# 2022 Hacen juegos, todos o casi todos cambian las mecánicas (debería dar yo más mecánicas, aunque que las hagan ellos no está mal). No cambian mecánicas gordas, más de plataforma y cosas así, en realidad de nivel, no hay problema. En general guay, todos lo pensaron bien ayer.
 
-# Fecha de entrega: *31 de marzo*
+# 2022 Termino a las 18:40
 
-# Recordad: intentad enviar lo que se ha hecho en clase, no es necesario avanzar mucho más los niveles
+# ** Preparación de pruebas
 
-# Para cada nivel, incluid un archivo de texto con los nombres de los miembros del grupo
+# 2022 Les digo que apunten rápido lo que quieren saber y apuntar. Les dejo tiempo para hacerlo (y que si van terminando empiecen a programar), y que en un rato hacemos check.
+ 
+ # 1. Preparar prototipo que pueda ser probado por otros equipos
+ # 2. Preparar cosas concretas que experimentar:
+ #   - *Lista* de preguntas, averiguaciones, observaciones
+ #   - Saber para qué quiero hacer cada pregunta, cómo voy a *aplicar* lo que vea
 
+# 2022. A las 19:00 les pregunto que me cuenten, a las 19:20 (8 grupos) termino y ya siguen. No tienen aún ninguno un nivel jugable (muchos están haciendo BP). Descanso a 19:28 más o menos. Voy a intentar que hoy no se haga QA, y que se hagan 2 QAs (y/o mejoras) el lunes. Jugaré con la exigencia. Vuelven a 19:45, muy serios.
+
+# 2022 19:52, creo que ya programamos hasta el final
+
+# 2022 20:24 ahí siguen, haciendo BPs. No han hecho nivel por ninguna parte, que yo vea. Bien
+# 2022 20:37 aquí seguimos, nadie ha hecho nivel. Pienso que tengo que pedir cosas más complejas para los otros 2 juegos. 20:47 igual.
+
+* III - Versión final, QA, presentación
+
+- Aplicar pruebas anteriores
+- Versión final
+- Pruebas finales (19:30)
+- Pulido
+- Presentación (20:15)
