@@ -1,3 +1,4 @@
+# -*- encoding: utf-8;  -*-
 #+TITLE: Montaje y pulido de niveles
 #+email: cleon@ucm.es
 #+LANGUAGE: es
@@ -697,10 +698,20 @@ Los enemigos se mueven a través de una malla de navegación (~NavMesh~)
 Hacen un daño ~Damage done~, en la clase ~Enemy~ (clase padre)
 
 *** Zombie
+:PROPERTIES:
+:ID:       2ad9e227-aebd-4ddf-9380-d11cbb4886ea
+:END:
 
 Te persigue y hace daño cuerpo a cuerpo
 
 Se mueve mediante un árbol de comportamiento (que os explicarán más adelante)
+
+#+REVEAL: split
+
+#+CAPTION: Si tenéis problemas con la malla de navegación con los zombies, subidlos un poco para que no afecten a la malla
+#+attr_html: :width 500px
+[[file:Sesión_4:_/Dual-stick/_cenital/2025-02-17_19-47-46_screenshot.png]]
+
 
 #+REVEAL: split
 
