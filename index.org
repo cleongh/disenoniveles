@@ -368,6 +368,16 @@ Elegimos las opciones y pinchamos en "Create"
 
 
 
+** Editores 3D externos
+
+También es posible usar editores externos ([[https://www.blender.org/][Blender]]) para:
+
+1. Crear geometría
+2. Exportar a FBX e incluirlo en el proyecto
+3. Importar el /mesh/ en UE
+
+Con esto tenemos mucha más flexibilidad para editar   
+   
 ** /Scroll lateral/
 
 *** Introducción
